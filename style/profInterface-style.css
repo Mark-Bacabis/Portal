@@ -128,6 +128,7 @@ body{
 
 .container .admin-panel .prof-profile .profile {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
@@ -135,6 +136,13 @@ body{
 .container .admin-panel .prof-profile .profile .prof-name{
   width: max-content;
   font-size: 1em;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.container .admin-panel .prof-profile .profile .prof-name h5{
+  font-weight: 400;
+ 
 }
 
 .container .admin-panel .prof-profile .profile img{

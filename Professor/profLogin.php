@@ -25,10 +25,10 @@
 
             <section>
                 <div class="login-container">
-                    <form action="profInterface.php">
+                    <form action="../process/login.php" method="POST">
                     <img src="../icons/user.png" alt="">
                     <center><h3>Login As Professor</h3></center>
-                    <label for="uname">Employee ID</label>
+                    <label for="uname"> Employee ID</label>
                     <input type="text" name="uname" id="uname">
                     <br>
                     <label for="pass">Password</label>
@@ -36,7 +36,7 @@
                     <input type="checkbox" name="rm" id="rm">
                     <label class = "rm" for="rm">Remember Me</label>
                     <br>
-                    <input type="submit" value="LOGIN">
+                    <input type="submit" value="LOGIN" name="loginBtn">
                     <p>Don't have an account? <a href="profRegister.php">Register here</a></p>
                     </form>
                 </div>
