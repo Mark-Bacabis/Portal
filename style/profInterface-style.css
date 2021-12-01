@@ -1112,6 +1112,7 @@ button#personal-btn{
   outline: none;
   font-size: .9em;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .announement-prof 
@@ -1142,7 +1143,7 @@ button#personal-btn{
 .announement-prof 
 .announcement-container 
 .post-announcement 
-.post .action-post button{
+.post .action-post input[type="submit"]{
   position: absolute;
   right: 5px;
   bottom: 0;
@@ -1364,9 +1365,266 @@ button#personal-btn{
   height: 25px;
 }
 
-
-
-
-
-
 /* ----ANNOUNCEMENT CONTAINER */
+
+
+
+/* GRADE CONTAINER */
+.grade-container{
+  width: 100%;
+  height: 100%;
+  padding: 5% 10%;
+}
+
+.grade-container .header-grade{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.grade-container .header-grade .combo-boxes{
+  display: flex;
+  align-items: center;
+}
+.grade-container .header-grade .combo-boxes .combo-box{
+  margin-right: 20px;
+}
+
+.grade-container .header-grade .combo-boxes .combo-box label{
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+
+.grade-container .header-grade .combo-boxes .combo-box select{
+  padding: 3px 10px;
+  outline: none;
+  border: none;
+  background: #fff;
+  font-size: 1.1em;
+} 
+
+.grade-container .header-grade h1{
+  font-size: 2em;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.541);
+  letter-spacing: 2px;
+}
+
+
+.grade-container .grade-box{
+  background-color: #fff;
+  padding: 2% 4%;
+  overflow-y: scroll;
+  height: 450px;
+}
+.grade-container .grade-box table{
+  width: 100%;
+}
+
+.grade-container .grade-box table tr:nth-child(2n + 1){
+  background-color: #c5c5c5;
+}
+
+.grade-container .grade-box table th{
+  letter-spacing: 1px;
+  background-color: #023047;
+  color: #fff;
+}
+.grade-container .grade-box table td{
+  font-size: 1em;
+  padding: 10px;
+  text-align: center;
+}
+
+.grade-container .grade-box table td input{
+  width: 35%;
+  padding: 2px 8px;
+  font-size: 14px;
+  border-radius: 7px;
+  text-align: center;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.493);
+}
+
+.grade-container .grade-box table td select{
+  font-size: 1em;
+  padding: 2px 10px;
+  border-radius: 7px;
+  outline: none;
+}
+
+.grade-container .submit{
+  display: flex;
+  float: right;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #e47c06;
+  color: #fff;
+  padding: 5px 20px;
+  border:none;
+  border-radius: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+/* ----GRADE CONTAINER */
+
+
+
+/* ATTENDANCE CONTAINER */
+.attendance-container{
+  width: 100%;
+  height: 100%;
+  padding: 5% 10%;
+}
+
+.attendance-container .header-attendance{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.attendance-container .header-attendance .combo-boxes{
+  display: flex;
+  flex-direction: column;
+}
+.attendance-container .header-attendance .combo-boxes .combo-box{
+  margin-bottom: 20px;
+}
+
+.attendance-container .header-attendance .combo-boxes .combo-box label{
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+
+.attendance-container .header-attendance .combo-boxes .combo-box select{
+  padding: 3px 10px;
+  outline: none;
+  border: none;
+  background: #fff;
+  font-size: 1.1em;
+} 
+
+.attendance-container .header-attendance .combo-boxes .upload label{
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.attendance-container .header-attendance .combo-boxes .upload input[type="file"]{
+  padding: 3px 10px;
+  outline: none;
+  border: none;
+  font-size: 1.1em;
+}
+
+.attendance-container .header-attendance h1{
+  font-size: 2em;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.541);
+  letter-spacing: 2px;
+}
+
+
+
+.attendance-container .attendance-box{
+  background-color: #fff;
+  padding: 2% 4%;
+  overflow-y: scroll;
+  height: 350px;
+}
+.attendance-container .attendance-box table{
+  width: 100%;
+}
+
+.attendance-container .attendance-box table tr:nth-child(2n + 1){
+  background-color: #c5c5c5;
+}
+
+.attendance-container .attendance-box table th{
+  letter-spacing: 1px;
+  background-color: #023047;
+  color: #fff;
+}
+.attendance-container .attendance-box table td{
+  font-size: 1em;
+  padding: 10px;
+  text-align: center;
+}
+/* ----ATTENDANCE CONTAINER */
+
+
+
+/* LIST CONTAINER */
+.list-container{
+  width: 100%;
+  height: 100%;
+  padding: 5% 10%;
+}
+
+.list-container .header-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.list-container .header-list .combo-boxes{
+  display: flex;
+  align-items: center;
+}
+.list-container .header-list .combo-boxes .combo-box{
+  margin-right: 20px;
+}
+
+.list-container .header-list .combo-boxes .combo-box label{
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+
+.list-container .header-list .combo-boxes .combo-box select{
+  padding: 3px 10px;
+  outline: none;
+  border: none;
+  background: #fff;
+  font-size: 1.1em;
+} 
+
+.list-container .header-list h1{
+  font-size: 2em;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.541);
+  letter-spacing: 2px;
+}
+
+
+
+.list-container .list-box{
+  background-color: #fff;
+  padding: 2% 4%;
+  overflow-y: scroll;
+  height: 450px;
+}
+.list-container .list-box table{
+  width: 100%;
+}
+
+.list-container .list-box table tr:nth-child(2n + 1){
+  background-color: #c5c5c5;
+}
+
+.list-container .list-box table th{
+  letter-spacing: 1px;
+  background-color: #023047;
+  color: #fff;
+}
+.list-container .list-box table td{
+  font-size: 1em;
+  padding: 10px;
+  text-align: center;
+}
+/* ----LIST CONTAINER */

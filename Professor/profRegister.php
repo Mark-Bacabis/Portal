@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="prof-login-style.css">
+    <link rel="stylesheet" href="../style/stud-login-style.css">
     <title>Quezon City University | Professor Register</title>
 </head>
 <body>
@@ -20,17 +20,17 @@
         <div class="register-box">
             <section>
                 <div class="login-container">
-                    <form action="profLogin.php">
-                    <img src="../icons/user.png" alt="">
-                    <center><h3>Register As Professor</h3></center>
-                    <label for="uname">Employee ID</label>
-                    <input type="text" name="uname" id="uname">
-                    <br>
-                    <label for="pass">School Email Address</label>
-                    <input type="password" name="pass" id="pass">
-                    <br>
-                    <input type="submit" value="REGISTER">
-                    <p>Already have an account? <a href="profLogin.php">Login here</a></p>
+                    <form action="../process/register.php" method="POST">
+                        <img src="../icons/user.png" alt="">
+                        <center><h3>Register As Professor</h3></center>
+                        <label for="uname">Employee ID</label>
+                        <input type="text" name="empId" id="uname">
+                        <br>
+                        <label for="pass">School Email Address</label>
+                        <input type="email" name="email" id="pass">
+                        <br>
+                        <input type="submit" name="regBtn" value="REGISTER">
+                        <p>Already have an account? <a href="profLogin.php">Login here</a></p>
                     </form>
                 </div>
             </section>

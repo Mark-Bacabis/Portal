@@ -1,3 +1,10 @@
+<?php
+    include('../includeDB/profDB.php');
+
+    $selCalendar = mysqli_query($profConnection, "SELECT * FROM calendar");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/profInterface-style.css">
-    <title>QCU | Calendar</title>
+    <title> QCU | Calendar</title>
 </head>
 <body>
 
@@ -13,7 +20,46 @@
 
     <div class="container">
 
-        <?php include('../include/sidebar.php') ?>
+    <section class ="admin-panel">
+            <div class="prof-profile">
+                <div class="profile">
+                    <img src="../icons/user.png" alt="">
+                    <div class="prof-name">
+                        <h3>Mark melvin bacabis</h3>
+                        <h5>21-0001</h5>
+                    </div>
+                </div>
+                <a href="editProfile.php" class="edit"> Edit Profile</a>
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li> <a href="profInterface.php" > <img src="../icons/open-book.png" alt="">  overview </a> </li>
+                    <li> <a href="./profInfo.php" > <img src="../icons/open-book.png" alt="">  academic profile </a> </li>
+                    <li> <a href="calendar.php" class="selected"> <img src="../icons/open-book.png" alt=""> calendar </a> </li>
+                    <li> 
+                        <a id="docu-btn"> 
+                            <img src="../icons/open-book.png" alt=""> 
+                            documents
+                            <img src="../icons/down-arrow.png" id="drop-down">
+                            <div class="docu-other" id="other-docu">
+                                <a href="grade.php"> Grade </a>
+                                <a href="attendance.php"> Attendance </a>
+                                <a href="list.php"> Master List </a>
+                            </div>
+                        </a> 
+                    </li>
+                    <li> <a href="profAnnouncement.php"> <img src="../icons/open-book.png" alt=""> announcements </a> </li>
+                </ul>
+            </div>
+
+            <div class="up-events">
+                <h2>Upcoming Events</h2>
+                <p><img src="../icons/party.png" alt="">Quezon City University U-Week</p>
+                <p><img src="../icons/party.png" alt="">QCU Foundation Day</p>
+                <p><img src="../icons/party.png" alt="">Buwan ng wika</p>
+            </div>
+        </section>
 
         <section class = "admin-container">
             <div class="info">
@@ -38,54 +84,17 @@
                                 <th> Dates </th>
                                 <th> Events </th>
                             </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
-                            <tr>
-                                <td>Aug 2 - 3 2021 </td>
-                                <td>Enrollment Period </td>
-                            </tr>
+                            <?php
+                                if($selCalendar -> num_rows > 0){
+                                    while($row =$selCalendar -> fetch_assoc()){ ?>
+                                <tr>
+                                    <td> <?=$row['date']?></td>
+                                    <td> <?=$row['event']?></td>
+                                   
+                                </tr>
+                            <?php   }
+                                } ?>
+                            
                         </table>    
                     </div>
                     
