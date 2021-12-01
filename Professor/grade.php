@@ -16,6 +16,7 @@
       <?php include('../include/sidebar.php'); ?>
 
       <section class = "admin-container"> 
+          <h1> Hello world </h1>
       </section>
    </div>
 
