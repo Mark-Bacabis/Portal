@@ -5,7 +5,7 @@
     $empID = $_SESSION['empID'];
 
     $dateNow = date("m-d-y");
-    echo $dateNow;
+    echo $empID;
 
     if(isset($_POST['announceBtn'])){
         $announce = $_POST['announcement'];

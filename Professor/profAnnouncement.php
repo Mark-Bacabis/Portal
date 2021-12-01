@@ -1,5 +1,11 @@
 <?php
+    include('../includeDB/profDB.php');
+    include('../includeDB/hrDB.php');
     include('../include/query.php');
+
+    // SELECT ALL ANNOUNCEMENT
+    $selAnnounce = mysqli_query($profConnection, "SELECT * FROM announce");
+
 ?>
 
 
@@ -79,18 +85,19 @@
                     <div class="posted-announcement">
                         <h3> Faculty Announcment </h3>
                         <div class="announcements">
-                           <div class="announce-prof">
-                                <h5> Mrs. Bulleque posted </h5>
-                                <p> 
-                                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illo sequi eaque rerum fugit ab sed! Praesentium debitis repudiandae consequatur"
-                                </p>
-                           </div>
-                           <div class="announce-prof">
-                                <h5> Mr. Bacabis posted </h5>
-                                <p> 
-                                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsum perspiciatis adipisci odio corporis, vitae quod porro dolore temporibus voluptates, nemo id! Consectetur dolores, atque repellat aliquam corrupti sapiente eligendi quae commodi corporis, repellendus omnis placeat accusamus necessitatibus ratione! Cum nam expedita nesciunt! Architecto aspernatur magni beatae possimus, labore reprehenderit."
-                                </p>
-                           </div>
+                            <?php
+                                if ($selAnnounce -> num_rows > 0){
+                                    while ($row = $selAnnounce -> fetch_assoc()){ ?>
+                                        <div class="announce-prof">
+                                            <h5> Professor <span> <?=$row['']?></span> posted </h5>
+                                            <p> 
+                                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illo sequi eaque rerum fugit ab sed! Praesentium debitis repudiandae consequatur"
+                                            </p>
+                                        </div>
+                                 <?php }
+                                } ?>
+                           
+                        
                         </div>
                     </div>
 
