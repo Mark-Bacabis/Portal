@@ -10,9 +10,6 @@
 <body>
     <?php include('../include/header.php'); ?> 
 
-
-    
-
     <div class="container">
 
         <?php include('../include/sidebar.php'); ?>

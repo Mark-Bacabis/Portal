@@ -3,7 +3,7 @@
                 <div class="profile">
                     <img src="../icons/user.png" alt="">
                     <div class="prof-name">
-                        <h3>Professor's name</h3>
+                        <h3>Mark melvin bacabis</h3>
                         <h5>21-0001</h5>
                     </div>
                 </div>
@@ -12,7 +12,7 @@
 
             <div class="navigation">
                 <ul>
-                    <li> <a href="profInterface.php" class="selected" accesskey="o" onclick="Click()"> <img src="../icons/open-book.png" alt="">  overview </a> </li>
+                    <li> <a href="profInterface.php"> <img src="../icons/open-book.png" alt="">  overview </a> </li>
                     <li> <a href="./profInfo.php"> <img src="../icons/open-book.png" alt="">  academic profile </a> </li>
                     <li> <a href="calendar.php"> <img src="../icons/open-book.png" alt=""> calendar </a> </li>
                     <li> 
