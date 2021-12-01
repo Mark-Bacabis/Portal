@@ -58,7 +58,7 @@ body{
   padding-right: 10px;
 }
 
-.header .time-logout button{
+.header .time-logout a{
   color: white;
   outline: none;
   border: none;
@@ -67,6 +67,7 @@ body{
   padding: 5px 30px;
   font-size: 1.1em;
   margin-left: 10px;
+  text-decoration: none;
 }
 
 .header .logo {
@@ -110,6 +111,8 @@ body{
 }
 
 .container .admin-panel{
+  display: flex;
+  flex-direction: column;
   width: 20%;
   height: 100%;
   background-color: white;
@@ -122,8 +125,9 @@ body{
   display: flex;
   flex-direction: column;
   background-color: #e4e4e4;
-  padding: 10px 15px;
+  padding: 3px;
   border-bottom: 2px solid gray;
+  height: 28%;
 }
 
 .container .admin-panel .prof-profile .profile {
@@ -158,7 +162,7 @@ body{
   color: white;
   font-size: 1.1em;
   letter-spacing: 1px;
-  padding: 5px;
+  padding: 2px 5px;
   text-decoration: none;
   border-radius: 5em;
   margin-top: 5px;
@@ -175,11 +179,9 @@ body{
 
 
 .container .admin-panel .navigation{
-  padding: 10px 30px;
-  padding-top: 15px;
+  padding: 3px 30px;
   border-bottom: 2px solid gray;
-  min-height: 300px;
-  height: 300px;
+  height: 46%;
 }
 
 .container .admin-panel .navigation ul li{
@@ -240,6 +242,8 @@ body{
 
 .container .admin-panel .up-events{
   padding: 10px 20px;
+  overflow-y: scroll ;
+  height: 26%;
 }
 
 .container .admin-panel .up-events p{
@@ -857,6 +861,7 @@ footer{
   border: none;
   padding: 2px 5px;
   font-size: 1em;
+  text-align: center;
 }
 
 
@@ -906,6 +911,9 @@ button#personal-btn{
   padding: 15px 10px;
   border: 1px solid black;
 }
+.prof-info-container .prof-info .personal-info  table td label{
+  text-transform: capitalize;
+}
 .prof-info-container .prof-info .personal-info  table td{
   text-align: center;
   padding: 0;
@@ -920,6 +928,7 @@ button#personal-btn{
   border-radius: 3px;
   width: 80%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .prof-info-container .prof-info .personal-info  table td input:disabled{
@@ -961,6 +970,10 @@ button#personal-btn{
   padding: 10px 0;
 }
 
+.prof-info-container .prof-info .contact-info  table td label{
+  text-transform: capitalize;
+}
+
 .prof-info-container .prof-info .contact-info  table td input{
   background-color: rgb(255, 255, 255);
   outline: none;
@@ -970,6 +983,7 @@ button#personal-btn{
   border-radius: 3px;
   width: 80%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .prof-info-container .prof-info .contact-info  table td input:disabled{
@@ -1014,6 +1028,10 @@ button#personal-btn{
   padding: 3px 0;
 }
 
+.prof-info-container .prof-info .emergency-info  table td{
+  text-transform: capitalize;
+}
+
 .prof-info-container .prof-info .emergency-info  table td input{
   background-color: rgb(255, 255, 255);
   outline: none;
@@ -1023,6 +1041,7 @@ button#personal-btn{
   border-radius: 3px;
   width: 80%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .prof-info-container .prof-info .emergency-info  table td input:disabled{

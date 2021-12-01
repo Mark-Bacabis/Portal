@@ -1,16 +1,5 @@
 <?php
-    session_start();
-    include('../includeDB/hrDB.php');
-    $empID = $_SESSION['empID'];
-    //echo $_SESSION['empID'];
-
-    if(empty($empID)){
-        header("location:profLogin.php");
-    }
-
-    // SELECT ALL INFORMATION ABOUT PROFESSOR WHO SIGNED IN
-    $selProf = mysqli_query($hrConnection, "SELECT * FROM `faculty_list` WHERE employee_id = '$empID' ");
-    $prof = mysqli_fetch_assoc($selProf);
+    include('../include/query.php');
 
 ?>
 
@@ -31,13 +20,7 @@
 
         <section class ="admin-panel">
             <div class="prof-profile">
-                <div class="profile">
-                    <img src="../icons/user.png" alt="">
-                    <div class="prof-name">
-                        <h3> <?=$prof['firstname']?> <?=$prof['lastname']?></h3>
-                        <h5> <?=$prof['employee_id']?></h5>
-                    </div>
-                </div>
+                <?php include('../include/sidebar.php') ?>
                 <a href="editProfile.php" class="edit"> Edit Profile</a>
             </div>
 

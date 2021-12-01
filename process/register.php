@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     include('../includeDB/hrDB.php'); //hrConnection
     include('../includeDB/profDB.php'); //profConnection
 
@@ -16,8 +16,16 @@
         if(mysqli_num_rows($selHr) == 1){
             $empIdAccount = $result['employee_id'];  
             $empPass = $result['password'];
+            $_SESSION['pass'] = $empPass;
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['lname'] = $result['lastname'];
+
 
             $insProf = mysqli_query($profConnection, "INSERT INTO `professor_account`(`emp_id`, `password`) VALUES ('$empIdAccount','$empPass')");
+
+            if($insProf){
+                header("location:mail.php");
+            }
         }
     }
 

@@ -10,6 +10,6 @@
         <div class="time-logout">
             <p class="date" id = "date"> Sept. 29 (Wed) </p>
             <p class="time" id = "time"> 10:00 am </p>
-            <button> Logout </button>
+            <a href="../Professor/profLogin.php"> Logout </a>
         </div>         
 </div>

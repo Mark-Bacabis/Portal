@@ -1,5 +1,5 @@
 <?php
-    include('../includeDB/profDB.php');
+    include('../include/query.php');
 ?>
 
 
@@ -19,13 +19,7 @@
     <div class="container">
         <section class ="admin-panel">
             <div class="prof-profile">
-                <div class="profile">
-                    <img src="../icons/user.png" alt="">
-                    <div class="prof-name">
-                        <h3>Mark melvin bacabis</h3>
-                        <h5>21-0001</h5>
-                    </div>
-                </div>
+                <?php include('../include/sidebar.php') ?>
                 <a href="editProfile.php" class="edit"> Edit Profile</a>
             </div>
 

@@ -1,3 +1,4 @@
+<?php include('../process/logout.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
