@@ -1,5 +1,13 @@
 <?php
     include('../include/query.php');
+    include('../includeDB/enrollmentDB.php');
+
+    // SELECT ALL INFO OF STUDENT
+    $selStud = mysqli_query($enrollConnect, "SELECT * FROM studentinfo as a
+    JOIN student_sections as b
+    ON a.StudentID = b.StudentID
+    WHERE b.sectionname = 'SBIT-1A'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,27 +64,8 @@
       <div class="list-container">
             <div class="header-list">
                <div class="combo-boxes">
-
-                  <div class="combo-box">
-                     <label for=""> Year </label>
-                     <select name="" id="">
-                           <option value="1st"> 1st </option>
-                           <option value="2nd"> 2nd </option>
-                           <option value="3rd"> 3rd </option>
-                           <option value="4th"> 4th </option>
-                     </select>
-                  </div>
                   <div class="combo-box">
                      <label for=""> Section </label>
-                     <select name="" id="">
-                           <option value="1st"> 1st </option>
-                           <option value="2nd"> 2nd </option>
-                           <option value="3rd"> 3rd </option>
-                           <option value="4th"> 4th </option>
-                     </select>
-                  </div>
-                  <div class="combo-box">
-                     <label for=""> Subject </label>
                      <select name="" id="">
                            <option value="1st"> 1st </option>
                            <option value="2nd"> 2nd </option>
@@ -96,13 +85,20 @@
                         <th> Lastname </th>
                         <th> Middlename </th>
                     </tr>
-
-                    <tr>
-                       <td> 161234 </td>
-                       <td> Mark Melvin </td>
-                       <td> Bacabis </td>
-                       <td> Estrera </td>
-                    </tr>
+                    
+                    <?php
+                        if($selStud -> num_rows > 0){
+                            while ($row = $selStud -> fetch_assoc()){?>
+                                <tr>
+                                    <td> <?=$row['StudentID']?> </td>
+                                    <td> <?=$row['FullName-Last']?> </td>
+                                    <td> <?=$row['FullName-First']?> </td>
+                                    <td> <?=$row['FullName-Middle']?> </td>
+                                </tr>    
+                    <?php   }
+                        }
+                    ?>
+                 
               </table>
           </div>
 

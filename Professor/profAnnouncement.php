@@ -4,8 +4,9 @@
     include('../include/query.php');
 
     // SELECT ALL ANNOUNCEMENT
-    $selAnnounce = mysqli_query($profConnection, "SELECT * FROM announce");
+    $selAnnounce = mysqli_query($profConnection, "SELECT * FROM announce ORDER BY time desc");
 
+   
 ?>
 
 
@@ -89,10 +90,11 @@
                                 if ($selAnnounce -> num_rows > 0){
                                     while ($row = $selAnnounce -> fetch_assoc()){ ?>
                                         <div class="announce-prof">
-                                            <h5> Professor <span> <?=$row['']?></span> posted </h5>
-                                            <p> 
-                                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illo sequi eaque rerum fugit ab sed! Praesentium debitis repudiandae consequatur"
-                                            </p>
+                                            <h5> 
+                                                <span> Professor  <?=$row['lastname']?> posted </span>
+                                                <span class="date-time"> <?=$row['date']?> <?=$row['time']?></span>
+                                            </h5>
+                                            <p> <?=$row['announcement'];?> </p>
                                         </div>
                                  <?php }
                                 } ?>

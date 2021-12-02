@@ -1236,11 +1236,34 @@ button#personal-btn{
 .posted-announcement
 .announcements
 .announce-prof h5{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.announement-prof 
+.announcement-container 
+.posted-announcement
+.announcements
+.announce-prof h5 span{
+  text-transform: capitalize;
   font-weight: 600;
   letter-spacing: .5px;
-  margin-bottom: 5px;
+
   text-decoration: underline;
 }
+
+.announement-prof 
+.announcement-container 
+.posted-announcement
+.announcements
+.announce-prof h5 .date-time{
+  text-decoration: none;
+  color: rgb(99, 99, 99);
+  font-weight: 400;
+  font-size: 12px;
+}
+
 
 
 
