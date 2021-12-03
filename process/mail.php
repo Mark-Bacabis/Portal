@@ -23,14 +23,14 @@
    $mail ->isHTML(true);
    $mail -> Host = 'smtp.gmail.com';
    $mail -> SMTPAuth = 'true';
-   $mail ->Username = 'melvinbacabis19@gmail.com';
-   $mail ->Password = '09085466258Isca';
+   $mail ->Username = 'isca5027@gmail.com';
+   $mail ->Password = '09085466258isca';
    $mail -> SMTPSecure = 'tls';
    $mail -> Port = '587';
 
    // RECEPIENTS
    $mail ->Subject = 'QCU Professor Portal Account';
-   $mail ->setFrom("melvinbacabis19@gmail.com", "Quezon City University Portal");
+   $mail ->setFrom("isca5027@gmail.com", "Quezon City University Portal");
    $mail ->addAddress("$email");
    $mail ->Body = "<h2> Hello Mr/Mrs <span style='text-transform: capitalized'> $lname </span>, Thank you for signing up to Quezon City University Professor Portal </h2>";
    $mail ->Body .= "<p> Your email is your <b> Employee ID </b> and your password is: <b> $pass </b> </p>";

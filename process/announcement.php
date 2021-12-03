@@ -1,28 +1,28 @@
 <?php
     session_start();
     date_default_timezone_set("Singapore");
-    include('../includeDB/profDB.php');
-    include('../includeDB/hrDB.php');
+    include('../include/db.php');
     $empID = $_SESSION['empID'];
 
     $dateNow = date("m-d-y");
     $timeNow = date("h:i:sa");
 
-    $selProfInfo = mysqli_query($hrConnection, "SELECT * FROM `faculty_list` WHERE employee_id = '$empID'");
+    $selProfInfo = mysqli_query($hrConn, "SELECT * FROM `tblemployees` WHERE EMPLOYEEID = '$empID'");
     $profInfo = mysqli_fetch_assoc($selProfInfo);
-    $lname = $profInfo['lastname'];
+    $lname = $profInfo['LNAME'];
     echo $lname;
 
     if(isset($_POST['announceBtn'])){
         $announce = $_POST['announcement'];
+        echo $announce;
 
-        $ins = mysqli_query($profConnection, 'INSERT INTO `announce` (`empid`,`lastname`, `announcement`, `date`, `time`) VALUES ("'.$empID.'", "'.$lname.'" ,"'.$announce.'", "'.$dateNow.'", "'.$timeNow.'")');
+        $ins = mysqli_query($profConn, 'INSERT INTO `announce` (`empid`, `lastname`, `announcement`, `date`, `time`) VALUES ("'.$empID.'", "'.$lname.'" ,"'.$announce.'", "'.$dateNow.'", "'.$timeNow.'")');
 
         if($ins){
             header("location:../Professor/profAnnouncement.php?Inserted Successfuly");
         }
         else{
-            echo error_log($ins);
+            error_log($selProfInfo);
         }
         
     }

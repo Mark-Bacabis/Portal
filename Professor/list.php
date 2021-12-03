@@ -1,9 +1,8 @@
 <?php
-    include('../include/query.php');
-    include('../includeDB/enrollmentDB.php');
+    include('../include/db.php');
 
     // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enrollConnect, "SELECT * FROM studentinfo as a
+    $selStud = mysqli_query($enConn, "SELECT * FROM studentinfo as a
     JOIN student_sections as b
     ON a.StudentID = b.StudentID
     WHERE b.sectionname = 'SBIT-1A'");

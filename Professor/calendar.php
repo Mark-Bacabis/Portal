@@ -1,7 +1,7 @@
 <?php
-    include('../includeDB/profDB.php');
+    include('../include/db.php');
     include('../include/query.php');
-    $selCalendar = mysqli_query($profConnection, "SELECT * FROM calendar");
+    $selCalendar = mysqli_query($profConn, "SELECT * FROM calendar");
 ?>
 <!DOCTYPE html>
 <html lang="en">

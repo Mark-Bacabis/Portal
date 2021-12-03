@@ -1,30 +1,48 @@
 <?php
     session_start();
-    include('../includeDB/hrDB.php'); //hrConnection
-    include('../includeDB/profDB.php'); //profConnection
+    include('../include/db.php');
 
+
+    $password = substr(str_shuffle('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$'), 0, 16);
 
     if(isset($_POST['regBtn'])){
         $empID = $_POST['empId'];
         $empEmail = $_POST['email'];
 
-        $selHr = mysqli_query($hrConnection, "SELECT * FROM `faculty_list` WHERE employee_id = '$empID' AND email = '$empEmail';
+        $selHr = mysqli_query($hrConn, "SELECT * FROM `tblemployees` WHERE EMPLOYEEID = '$empID' AND EMAILADDRESS = '$empEmail';
         ");
 
         $result = mysqli_fetch_assoc($selHr);
 
         if(mysqli_num_rows($selHr) == 1){
-            $empIdAccount = $result['employee_id'];  
-            $empPass = $result['password'];
+            $empIdAccount = $result['EMPLOYEEID'];
+            $email = $result['EMAILADDRESS'];
+            $fname = $result['FNAME'];
+            $lname = $result['LNAME'];
+            $fullname = $lname .', '. $fname;
+
+            echo "$empIdAccount: $fullname <br>";
+            echo "email: $email <br> password: $password \n\r";
+            
+
+            $empPass = $password;
             $_SESSION['pass'] = $empPass;
-            $_SESSION['email'] = $result['email'];
-            $_SESSION['lname'] = $result['lastname'];
+            $_SESSION['email'] = $email;
+            $_SESSION['lname'] = $lname;
 
 
-            $insProf = mysqli_query($profConnection, "INSERT INTO `professor_account`(`emp_id`, `password`) VALUES ('$empIdAccount','$empPass')");
+            $insProf = mysqli_query($profConn, "INSERT INTO `professor_account`
+            (`emp_id`, `password`, `email`, `fullname`, `profile`) 
+            VALUES 
+            ('$empIdAccount','$empPass','$email','$fullname','user.png')");
 
             if($insProf){
                 header("location:mail.php");
+                
+                //echo "Registered successfuly";
+            }
+            else{
+                error_log($profConn);   
             }
         }
     }

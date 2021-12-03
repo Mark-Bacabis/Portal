@@ -1,10 +1,7 @@
 <?php
-    include('../includeDB/profDB.php');
-    include('../includeDB/hrDB.php');
-    include('../include/query.php');
-
+    include('../include/db.php');
     // SELECT ALL ANNOUNCEMENT
-    $selAnnounce = mysqli_query($profConnection, "SELECT * FROM announce ORDER BY time desc");
+    $selAnnounce = mysqli_query($profConn, "SELECT * FROM announce ORDER BY time desc");
 
    
 ?>

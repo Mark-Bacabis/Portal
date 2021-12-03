@@ -63,7 +63,7 @@
 
                     <table border="0">
                         <tr>
-                            <td> <input type="text" value="<?=$prof['employee_id']?>" disabled> <br> <label for=" "> Employee ID </label></td>
+                            <td> <input type="text" value="<?=$prof['EMPLOYEEID']?>" disabled> <br> <label for=" "> Employee ID </label></td>
                             <td> <input type="text" value="" disabled> <br> <label for=" "> Department </label></td>
                             <td> <input type="text" value="" disabled> <br> <label for=" "> Year </label></td>
                             <td> <input type="text" value="" disabled> <br> <label for=" "> Campus </label></td>
