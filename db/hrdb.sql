@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 08:35 AM
+-- Generation Time: Dec 03, 2021 at 10:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -275,7 +275,7 @@ CREATE TABLE `tblemployees` (
 
 INSERT INTO `tblemployees` (`INCID`, `EMPLOYEEID`, `FNAME`, `LNAME`, `MNAME`, `ADDRESS`, `BIRTHDATE`, `BIRTHPLACE`, `AGE`, `SEX`, `CIVILSTATUS`, `TELNO`, `CITIZENSHIP`, `RELIGION`, `HEIGHT`, `WEIGHT`, `BLOODTYPE`, `TINNO`, `SSSNO`, `PHNO`, `EMAILADDRESS`, `CELLNO`, `PAGIBIGNO`, `PERAANO`, `GSISNO`, `POSITION`, `WORKSTATS`, `DEPARTMENTID`, `DIVISIONID`, `EMPPHOTO`, `EMPUSERNAME`, `EMPPASSWORD`, `DATEHIRED`) VALUES
 (36, '288', 'DAFFODILS', 'GARCENIEGO', 'CATALUNA', 'KABANKALAN CITY', '1989-05-18', 'ILOILO CITY', 28, 'Female', 'Married', '09175305359', 'AMERICAN', 'BAPTIST', '', '', 'A', '296-810-167', '07-2585122-0', '', 'daffgarceniego@GMAIL.COM', '09175305359', '', '', '', 'STAFF', 'Regular', 12, 4, 'photos/STARTS-JOB-AS-PROGRAMMER.jpg', 'daff', '4277986f0240024a564bce32c8f48538dab5d180', '2000-11-30'),
-(37, '520', 'ROSELYN ', 'QUIOCSON', 'MONTILLA', 'BACOLOD CITY', '1991-07-25', 'MAKATI CITY', 25, 'Female', 'Single', '09274014437', 'FILIPINO', 'CATHOLIC', '165 CM', '180KG', 'A+', '435-886-411', '', '', 'rmquiocson@gmail.com', '', '', '', '', 'FACULTY', 'Temporary', 5, 5, 'photos/ms.rhea.jpg', '520', '0b6a63765cf0acb1022fc7c84ed8dcb104f221ed', '2016-06-16'),
+(37, '211234', 'Mark Melvin', 'Bacabis', 'Estrera', '123 Area 1B Luzon Avenue Old Balara Quezon City', '1999-12-08', 'Quezon City', 22, 'Male', 'Married', '09123456789', 'FILIPINO', 'CATHOLIC', '165 CM', '180KG', 'A+', '435-886-411', '', '', 'mark.melvin.bacabis@gmail.com', '09123456789', '', '', '', 'FACULTY', 'Temporary', 5, 5, 'photos/ms.rhea.jpg', '211234', '0b6a63765cf0acb1022fc7c84ed8dcb104f221ed', '2016-06-16'),
 (39, '209', 'RAZEN GRACE ', 'JACOSALEM', 'GANON', 'ZONE 4 BRGY MAMBULAC  SILAY CITY NEGROS OCCIDENTAL', '1987-06-17', 'SILAY CITY NEGROS OCCIDENTAL', 29, 'Female', 'Single', '09298860387', 'FILIPINO', 'BAPTIST', '5\'', '44KG', 'O', '276-185-565', '07-2453503-9', '11-050447037-7', 'razengrace29@yahoo.com', '09298860387', 'N/A', 'N/A', 'N/A', 'FACULTY', 'Regular', 15, 5, '', '209', 'acfdd18ea7f4a2ba74132ba977dc207204142994', '2010-09-14'),
 (40, '233', 'ZARLITO', 'CALAMAY', 'PICO', 'ROA ST. KABANKALAN CITY', '1973-04-19', 'ROA ST. KABANKALAN CITY', 44, 'Male', 'Married', '09494916033', 'FILIPINO', 'BAPTIST', '5\'4 1/2\"', '120LBS.', 'O', '905-126-310', '07-1677841-9', '11-201131260-0', '', '', '', '', '', 'STAFF', 'Regular', 8, 4, '', '233', '52fdb9f68c503e11d168fe52035901864c0a4861', '2010-01-13'),
 (41, '236', 'MARICAR', 'SERGIO', 'BANCES', 'SITIO ULALOD, BRGY. ORINGAO KABANKALAN CITY', '1982-11-29', 'SITIO ULALOD, BRGY. ORINGAO KABANKALAN CITY', 34, 'Female', 'Single', '09216381216', 'FILIPINO', 'BAPTIST', '5\'2\"', '45KG.', 'O+', '248-706-132', '07-3047584-0', '02-050306489-9', 'maricar_sergio@yahoo.com', '09216381216', '', '', '', 'DEAN', 'Regular', 10, 5, '', '236', '5d23e965603269f7674c2fc33318f5d5af406f6f', '2010-11-12'),

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 08:35 AM
+-- Generation Time: Dec 03, 2021 at 10:07 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -63,9 +63,18 @@ INSERT INTO `academic_profile` (`emp_id`, `department`, `year`, `campus`, `degre
 CREATE TABLE `announce` (
   `id` int(11) NOT NULL,
   `empid` int(11) NOT NULL,
+  `lastname` varchar(55) NOT NULL,
   `announcement` varchar(255) NOT NULL,
-  `date` varchar(20) NOT NULL
+  `date` varchar(20) NOT NULL,
+  `time` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `announce`
+--
+
+INSERT INTO `announce` (`id`, `empid`, `lastname`, `announcement`, `date`, `time`) VALUES
+(6, 288, 'GARCENIEGO', 'Sample Announcement from Garceniego', '12-03-21', '04:53:46pm');
 
 -- --------------------------------------------------------
 
@@ -231,15 +240,19 @@ INSERT INTO `master_list` (`emp_id`, `stud_id`, `firstname`, `lastname`, `middle
 CREATE TABLE `professor_account` (
   `id` int(20) NOT NULL,
   `emp_id` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(16) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `fullname` varchar(55) NOT NULL,
+  `profile` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `professor_account`
 --
 
-INSERT INTO `professor_account` (`id`, `emp_id`, `password`) VALUES
-(11, '2021-1234', '639bee393eecbc62256936a8e64d17b1');
+INSERT INTO `professor_account` (`id`, `emp_id`, `password`, `email`, `fullname`, `profile`) VALUES
+(12, '288', 'XGOochWTLRtb!lYC', 'daffgarceniego@GMAIL.COM', 'GARCENIEGO, DAFFODILS', 'user.png'),
+(13, '211234', 'G47AiKSXfPaTmpLg', 'mark.melvin.bacabis@gmail.com', 'Bacabis, Mark Melvin', 'user.png');
 
 -- --------------------------------------------------------
 
@@ -337,7 +350,7 @@ ALTER TABLE `professor_contact`
 -- AUTO_INCREMENT for table `announce`
 --
 ALTER TABLE `announce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `attendance`
@@ -361,7 +374,7 @@ ALTER TABLE `grade`
 -- AUTO_INCREMENT for table `professor_account`
 --
 ALTER TABLE `professor_account`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
