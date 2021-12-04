@@ -65,8 +65,8 @@
                         <tr>
                             <td> <input type="text" value="<?=$prof['EMPLOYEEID']?>" disabled> <br> <label for=" "> Employee ID </label></td>
                             <td> <input type="text" value="" disabled> <br> <label for=" "> Department </label></td>
-                            <td> <input type="text" value="" disabled> <br> <label for=" "> Year </label></td>
-                            <td> <input type="text" value="" disabled> <br> <label for=" "> Campus </label></td>
+                            <td> <input type="text" value="" disabled> <br> <label for=" "> Position </label></td>
+                            <td> <input type="text" value="" disabled> <br> <label for=" "> Employment Status </label></td>
                         </tr>
                         <tr>
                             <td> <input type="text" value="" disabled> <br> <label for=" ">Degree</label></td>
@@ -90,15 +90,15 @@
                         <table>
                             <tr>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['firstname']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['LNAME']?>" disabled> <br> 
                                     <label for=""> Lastname </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['lastname']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['FNAME']?>" disabled> <br> 
                                     <label for=""> Firstname </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['middlename']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['MNAME']?>" disabled> <br> 
                                     <label for=""> Middlename </label>
                                 </td>
                                 <td> 
@@ -108,52 +108,48 @@
                             </tr>
                             <tr>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['birthdate']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['BIRTHDATE']?>" disabled> <br> 
                                     <label for=""> Birthday </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['birthplace']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['BIRTHPLACE']?>" disabled> <br> 
                                     <label for=""> Place of Birth </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['sex']?>" disabled> <br> 
-                                    <label for=""> gender </label>
+                                    <input type="text" name="" id="" value="<?=$prof['AGE']?>" disabled> <br> 
+                                    <label for=""> Age </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['religion']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['SEX']?>" disabled> <br> 
+                                    <label for=""> Gender </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"> 
+                                    <input type="text" name="" id="" value="<?=$prof['ADDRESS']?>" disabled style = "width:90%"> <br> 
+                                    <label for=""> Full Address </label>
+                                </td>
+                                <td> 
+                                    <input type="text" name="" id="" value="<?=$prof['CITIZENSHIP']?>" disabled> <br> 
+                                    <label for=""> Nationality </label>
+                                </td>
+                                <td> 
+                                    <input type="text" name="" id="" value="<?=$prof['RELIGION']?>" disabled> <br> 
                                     <label for=""> Religion </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['civilstatus']?>" disabled> <br> 
-                                    <label for=""> civil status </label>
+                                    <input type="text" name="" id="" value="<?=$prof['HEIGHT']?>" disabled> <br> 
+                                    <label for=""> Height </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['citizenship']?>" disabled> <br> 
-                                    <label for=""> nationality </label>
+                                    <input type="text" name="" id="" value="<?=$prof['WEIGHT']?>" disabled>  <br> 
+                                    <label for=""> Weight </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="" disabled> <br> 
-                                    <label for=""> house no. </label>
-                                </td>
-                                <td> 
-                                    <input type="text" name="" id="" value="" disabled> <br> 
-                                    <label for=""> barangay. </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> 
-                                    <input type="text" name="" id="" value="" disabled> <br> 
-                                    <label for=""> district </label>
-                                </td>
-                                <td> 
-                                    <input type="text" name="" id="" value="" disabled> <br> 
-                                    <label for=""> city / province </label>
-                                </td>
-                                <td> 
-                                    <input type="text" name="" id="" value="" disabled>  <br> 
-                                    <label for=""> zip code </label>
+                                    <input type="text" name="" id="" value="<?=$prof['BLOODTYPE']?>" disabled> <br> 
+                                    <label for=""> Blood Type </label>
                                 </td>
                                 <td> 
                                     <button> Edit </button>
@@ -168,20 +164,16 @@
                         <table>
                             <tr>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['contact']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['CELLNO']?>" disabled> <br> 
                                     <label for=""> Mobile number </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['phno']?>" disabled> <br> 
+                                    <input type="text" name="" id="" value="<?=$prof['TELNO']?>" disabled> <br> 
                                     <label for=""> landline number </label>
                                 </td>
-                                <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['email']?>" disabled> <br> 
+                                <td colspan="2"> 
+                                    <input type="text" name="" id="" value="<?=$prof['EMAILADDRESS']?>" disabled style = "width: 90%"> <br> 
                                     <label for=""> school email </label>
-                                </td>
-                                <td> 
-                                    <input type="text" name="" id="" value="" disabled> <br> 
-                                    <label for=""> facebook </label>
                                 </td>
                             </tr>
                             <tr>
