@@ -1,4 +1,5 @@
 <?php
+    echo 'hello world';
     include('../include/query.php');
 ?>
 <!DOCTYPE html>
