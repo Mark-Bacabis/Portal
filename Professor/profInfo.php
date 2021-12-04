@@ -1,5 +1,4 @@
 <?php
-    echo 'hello world';
     include('../include/query.php');
 ?>
 <!DOCTYPE html>
@@ -88,6 +87,7 @@
 
 
                     <div class="personal-info" id="personal-container">
+                        
                         <table>
                             <tr>
                                 <td> 
@@ -125,9 +125,10 @@
                                     <label for=""> Gender </label>
                                 </td>
                             </tr>
+                            <form action="../include/profInfo.php" method="POST">
                             <tr>
                                 <td colspan="2"> 
-                                    <input type="text" name="" id="" value="<?=$prof['ADDRESS']?>" disabled style = "width:90%"> <br> 
+                                    <input type="text" name="address" id="" class="textAble" value="<?=$prof['ADDRESS']?>" disabled style = "width:90%"> <br> 
                                     <label for=""> Full Address </label>
                                 </td>
                                 <td> 
@@ -135,28 +136,31 @@
                                     <label for=""> Nationality </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['RELIGION']?>" disabled> <br> 
+                                    <input type="text" name="rel" id="" class="textAble" value="<?=$prof['RELIGION']?>" disabled> <br> 
                                     <label for=""> Religion </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['HEIGHT']?>" disabled> <br> 
+                                    <input type="text" name="height" id="" class="textAble" value="<?=$prof['HEIGHT']?>" disabled> <br> 
                                     <label for=""> Height </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['WEIGHT']?>" disabled>  <br> 
+                                    <input type="text" name="weight" id="" class="textAble" value="<?=$prof['WEIGHT']?>" disabled>  <br> 
                                     <label for=""> Weight </label>
                                 </td>
                                 <td> 
-                                    <input type="text" name="" id="" value="<?=$prof['BLOODTYPE']?>" disabled> <br> 
+                                    <input type="text" name="bt" id="" value="<?=$prof['BLOODTYPE']?>" disabled> <br> 
                                     <label for=""> Blood Type </label>
                                 </td>
                                 <td> 
-                                    <button> Edit </button>
+                                    <a id="editPersonal"> Edit </a>
+                                    <input type="submit" value="Update" name="updPersonal" id="updPersonal">
                                 </td>
                             </tr>
                         </table>
+                       
+                        </form>
                     </div>
 
 

@@ -1,5 +1,15 @@
 <?php
     include('../include/query.php');
+    // SELECT ALL INFO OF STUDENT
+    $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
+    JOIN professor_portal.professor_section b
+    ON a.EMPLOYEEID = b.profID
+    JOIN enrollment.student_sections c
+    ON b.sectionName = c.sectionname
+    JOIN enrollment.studentinfo d
+    ON c.StudentID = d.StudentID
+    WHERE b.profID = '$empID' AND b.sectionName = 'BAEN-1A'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,16 +68,6 @@
           
           <div class="header-grade">
               <div class="combo-boxes">
-
-                <div class="combo-box">
-                    <label for=""> Year </label>
-                    <select name="" id="">
-                        <option value="1st"> 1st </option>
-                        <option value="2nd"> 2nd </option>
-                        <option value="3rd"> 3rd </option>
-                        <option value="4th"> 4th </option>
-                    </select>
-                </div>
                 <div class="combo-box">
                     <label for=""> Section </label>
                     <select name="" id="">
@@ -94,145 +94,38 @@
               <table border="0">
                     <tr>
                         <th> Student ID </th>
-                        <th> Firstname </th>
                         <th> Lastname </th>
+                        <th> Firstname </th>
                         <th> Middlename </th>
                         <th> Grade  </th>
                         <th> Action  </th>
                     </tr>
-                    <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  <tr>
-                        <td> 161234 </td>
-                        <td> Mark Melvin </td>
-                        <td> Bacabis </td>
-                        <td> Estrera </td>
-                        <td> <input type="text" name="grade" id=""> </td>
-                        <td> 
-                            <select name="action" id="">
-                                <option value="COMPLETE"> COMPLETE </option>
-                                <option value="INC"> INC </option>
-                                <option value="DROP"> DROP </option>
-                            </select>
-                        </td>
-                  </tr>
-                  
+                <form action="../process/insertGrade.php" method="POST">
+                    <?php
+                        if(mysqli_num_rows($selStud) > 0){
+                            while($row = mysqli_fetch_assoc($selStud)){ ?>
+                              <tr>
+                                <td> <?=$row['StudentID']?> </td>
+                                <td> <?=$row['FullName-Last']?> </td>
+                                <td> <?=$row['FullName-First']?> </td>
+                                <td> <?=$row['FullName-Middle']?> </td>
+                                <td> <input type="text" name="grade[]"> </td>
+                                <td> 
+                                    <select name="action[]">
+                                        <option value="COMPLETE"> COMPLETE </option>
+                                        <option value="INC"> INC </option>
+                                        <option value="DROP"> DROP </option>
+                                    </select>
+                                </td>
+                            </tr>
+                    <?php  }
+                    }
+                    ?>  
               </table>
           </div>
-          <input type="submit" value="Submit Grade" class="submit">
-
-          </div>
-          
+            <input type="submit" value="Submit Grade" class="submit">
+            </form>          
+        </div> 
       </section>
    </div>
 

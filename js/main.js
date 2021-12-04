@@ -4,8 +4,6 @@ const dropIcon = document.getElementById('drop-down');
 
 const link = document.querySelectorAll('.navigation a');
 
-console.log(link);
-
 function Click(){
    console.log(link.onclick);
 }

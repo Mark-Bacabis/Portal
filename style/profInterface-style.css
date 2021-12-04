@@ -936,7 +936,7 @@ button#personal-btn{
   border: none;
 }
 
-.prof-info-container .prof-info .personal-info  table td button{
+#editPersonal{
   font-size: 1em;
   padding: 3px 50px;
   text-align: center;
@@ -946,6 +946,22 @@ button#personal-btn{
   color: #fff;
   font-weight: 600;
   letter-spacing: 2px;
+  cursor: pointer;
+}
+
+#updPersonal{
+  font-size: 1em;
+  padding: 3px 50px;
+  text-align: center;
+  border: none;
+  border-radius: 5em;
+  background-color: #2f8827;;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  width: max-content;
+  display: none;
+  margin: auto;
 }
 
 /* -----PERSONAL CONTAINER */

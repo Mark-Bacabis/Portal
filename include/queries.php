@@ -33,6 +33,4 @@
    // emergency
    $emergencyQry = mysqli_query($conn, 'SELECT * FROM emergency WHERE Student_ID = "'.$studentID.'"');
    $studEmergency = mysqli_fetch_assoc($emergencyQry);
-
-
 ?>

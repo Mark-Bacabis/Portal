@@ -3,12 +3,18 @@
 const personalBtn = document.getElementById('personal-btn');
 const contactBtn = document.getElementById('contact-btn');
 const emergencyBtn = document.getElementById('emergency-btn');
+const editPersonal = document.getElementById('editPersonal');
+const updPersonal = document.getElementById('updPersonal');
+
+console.log(updPersonal);
 
 // Containers
 const personalContainer = document.getElementById('personal-container');
 const contactContainer = document.getElementById('contact-container');
 const emergencyContainer = document.getElementById('emergency-container');
 
+// PERSONAL TEXT
+const personalAble = document.querySelectorAll('.textAble');
 
 // CLICK EVENTS
 
@@ -69,3 +75,13 @@ emergencyBtn.addEventListener('click', (e)=>{
 
 });
 
+
+
+editPersonal.addEventListener('click', (e) =>{
+   editPersonal.style.display = 'none';
+   updPersonal.style.display = 'flex';
+
+   for(let i = 0; i < personalAble.length; i++){
+      personalAble[i].disabled = false;
+   }
+});

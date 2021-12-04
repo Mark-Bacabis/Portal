@@ -1,11 +1,17 @@
 <?php
+    session_start();
     include('../include/db.php');
+    $empID = $_SESSION['empID'];
 
     // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM studentinfo as a
-    JOIN student_sections as b
-    ON a.StudentID = b.StudentID
-    WHERE b.sectionname = 'SBIT-1A'");
+    $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
+    JOIN professor_portal.professor_section b
+    ON a.EMPLOYEEID = b.profID
+    JOIN enrollment.student_sections c
+    ON b.sectionName = c.sectionname
+    JOIN enrollment.studentinfo d
+    ON c.StudentID = d.StudentID
+    WHERE b.profID = '$empID' AND b.sectionName = 'SBIT-1A'");
 
 ?>
 <!DOCTYPE html>
