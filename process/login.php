@@ -8,6 +8,7 @@
 
         
         $selProf = mysqli_query($profConn, "SELECT * FROM `professor_account` WHERE `emp_id` = '$user' AND `password` = '$pass' ");
+        
         $result = mysqli_fetch_assoc($selProf);
 
        if(mysqli_num_rows($selProf) == 1){

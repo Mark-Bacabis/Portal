@@ -1,5 +1,6 @@
 <?php
     include('../include/query.php');
+    include('../include/db.php');
 
 ?>
 
@@ -108,21 +109,6 @@
                     </div>
 
 
-                </div>
-
-                <div class="second-container">
-
-                    <div class="reminders">
-                        <h3>Reminders</h3>
-                        <ul>
-                            <li>Midterm examination is near</li>
-                            <li>Submission of midterm grade is scheduled after midterm exam.    </li>
-                        </ul>
-                    </div>
-
-                    <div class="exam-sched">
-
-                    </div>
                 </div>
             </div>
 

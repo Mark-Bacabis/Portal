@@ -1,5 +1,14 @@
 <?php
     include('../include/query.php');
+    include('../include/db.php');
+
+    // SELECT SUBJECT AND SECTION HANDLED BY PROFESSOR
+    $selSecSub = mysqli_query($profConn, "SELECT * FROM `professor_section` WHERE `profID` = $empID");
+    $SecSub = mysqli_fetch_assoc($selSecSub);
+
+    $section = $SecSub['sectionName'];
+    $subject = $SecSub['subject'];
+
     // SELECT ALL INFO OF STUDENT
     $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
     JOIN professor_portal.professor_section b
@@ -8,7 +17,15 @@
     ON b.sectionName = c.sectionname
     JOIN enrollment.studentinfo d
     ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND b.sectionName = 'BAEN-1A'");
+    WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = '$subject'");
+
+  
+
+    // SELECT ALL HANDLED SECTION
+    $selSec = mysqli_query($profConn, "SELECT DISTINCT sectionName FROM `professor_section` WHERE `profID` = '$empID' ");
+
+    // SELECT ALL HANDLED SUBJECT
+    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject' ");
 
 ?>
 <!DOCTYPE html>
@@ -20,14 +37,40 @@
     <link rel="stylesheet" href="../style/profInterface-style.css">
     <title>QCU | Calendar</title>
 </head>
+    <!-- AJAX --> 
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#section').change(function(){
+            var section = $('#section').val();
+
+            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
+                section:section
+            });
+
+            $('#subject').load('../ajaxProcess/fetchSubject.php',{
+                section: section
+            });
+        });
+
+        $('#subject').change(function(){
+            var subject = $('#subject').val();
+            var section = $('#section').val();
+
+            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
+                subject:subject,
+                section:section
+            });
+        });
+    });
+</script>
+
 <body>
 
     <?php include('../include/header.php'); ?> 
 
    <div class="container">
-
-        
-
         <section class ="admin-panel">
             <div class="prof-profile">
                 <?php include('../include/sidebar.php') ?>
@@ -63,27 +106,27 @@
             </div>
         </section>
 
-      <section class = "admin-container"> 
+        <section class = "admin-container"> 
           <div class="grade-container">
           
           <div class="header-grade">
               <div class="combo-boxes">
                 <div class="combo-box">
                     <label for=""> Section </label>
-                    <select name="" id="">
-                        <option value="1st"> 1st </option>
-                        <option value="2nd"> 2nd </option>
-                        <option value="3rd"> 3rd </option>
-                        <option value="4th"> 4th </option>
+                    <select id="section">
+                        <?php if(mysqli_num_rows($selSec) > 0) { 
+                            while($row = mysqli_fetch_assoc($selSec)) { ?>
+                                <option value="<?=$row['sectionName']?>"> <?=$row['sectionName']?> </option>
+                        <?php } } ?>
                     </select>
                 </div>
                 <div class="combo-box">
                     <label for=""> Subject </label>
-                    <select name="" id="">
-                        <option value="1st"> 1st </option>
-                        <option value="2nd"> 2nd </option>
-                        <option value="3rd"> 3rd </option>
-                        <option value="4th"> 4th </option>
+                    <select name="" id="subject">
+                        <?php if(mysqli_num_rows($selSub) > 0) { 
+                            while($row = mysqli_fetch_assoc($selSub)) { ?>
+                                <option value="<?=$row['subject']?>"> <?=$row['subject']?> </option>
+                        <?php } } ?>
                     </select>
                 </div>
               </div>
@@ -103,8 +146,8 @@
                 <form action="../process/insertGrade.php" method="POST">
                     <?php
                         if(mysqli_num_rows($selStud) > 0){
-                            while($row = mysqli_fetch_assoc($selStud)){ ?>
-                              <tr>
+                            while($row = mysqli_fetch_assoc($selStud)) { ?>
+                            <tr>
                                 <td> <?=$row['StudentID']?> </td>
                                 <td> <?=$row['FullName-Last']?> </td>
                                 <td> <?=$row['FullName-First']?> </td>
@@ -124,7 +167,7 @@
               </table>
           </div>
             <input type="submit" value="Submit Grade" class="submit">
-            </form>          
+        </form>          
         </div> 
       </section>
    </div>
