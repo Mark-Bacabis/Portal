@@ -153,10 +153,6 @@
                                     <input type="text" name="bt" id="" value="<?=$prof['BLOODTYPE']?>" disabled> <br> 
                                     <label for=""> Blood Type </label>
                                 </td>
-                                <td> 
-                                    <a id="editPersonal"> Edit </a>
-                                    <input type="submit" value="Update" name="updPersonal" id="updPersonal">
-                                </td>
                             </tr>
                         </table>
                        
@@ -180,12 +176,6 @@
                                     <input type="text" name="" id="" value="<?=$prof['EMAILADDRESS']?>" disabled style = "width: 90%"> <br> 
                                     <label for=""> school email </label>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> <button> Edit </button></td>
                             </tr>
                         </table>
                     </div>
@@ -212,11 +202,6 @@
                                     <input type="text" name="" id="" disabled> <br> 
                                     <label for=""> home address </label>
                                 </td>
-                            </tr>
-                            <tr>
-                            
-                                <td> </td>
-                                <td> <button> Edit </button></td>
                             </tr>
                         </table>
                     </div>

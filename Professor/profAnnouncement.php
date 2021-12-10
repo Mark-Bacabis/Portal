@@ -1,9 +1,9 @@
 <?php
+    session_start();
     include('../include/db.php');
+    $empID = $_SESSION['empID'];
     // SELECT ALL ANNOUNCEMENT
-    $selAnnounce = mysqli_query($profConn, "SELECT * FROM announce ORDER BY time desc");
-
-   
+    $selAnnounce = mysqli_query($profConn, "SELECT * FROM `announce` WHERE `empid` = '$empID' ORDER BY time desc");
 ?>
 
 
@@ -69,13 +69,13 @@
 
                         
                         <div class="post">
-                        <form action="../process/announcement.php" method="POST">
-                            <textarea name="announcement" placeholder="Write an announcement here"></textarea>
-                            <div class="action-post">
-                                <p id="message"> Posted Successfuly </p>
-                                <input type="submit" value="POST" name="announceBtn">
-                            </div>
-                        </form>
+                            <form action="../process/announcement.php" method="POST">
+                                <textarea name="announcement" placeholder="Write an announcement here"></textarea>
+                                <div class="action-post">
+                                    <p id="message"> Posted Successfuly </p>
+                                    <input type="submit" value="POST" name="announceBtn">
+                                </div>
+                            </form>
                         </div>
                         
                     </div>
@@ -100,41 +100,6 @@
                         </div>
                     </div>
 
-                </div>
-
-                <div class="chat-container">
-                    <div class="chat-box">
-                        
-                        <label for="send-chat" class="chats-container">
-                            <div class="options">
-                                <h2> ChatBox </h2>
-                                <img src="../icons/down-arrow.png" id="minimize">
-                            </div>
-
-                            <div class="chats">
-                                <div class="chat">
-                                    <img src="../icons/user.png">
-                                    <p> aaLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, facere.</p>
-                                </div>
-                                    
-                                <div class="chat">
-                                    <img src="../icons/user.png">
-                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, aliquam modi magnam quae aspernatur dolores sint ratione quibusdam deleniti odit error doloremque atque obcaecati fuga. Dignissimos amet perferendis consectetur sequi ipsum voluptates saepe quam eius, dolor suscipit error rerum pariatur!</p>
-                                </div>
-
-                                <div class="chat">
-                                    <img src="../icons/user.png">
-                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. In veniam minima fuga. Commodi culpa est maxime sunt iusto dolorem temporibus. Minus ipsam voluptatem enim porro veritatis sequi tempora doloribus perspiciatis.</p>
-                                </div>
-                            </div>
-
-
-                            <div class="send-chat-option">
-                                <input type="text" name="send-chat" id="send-chat" placeholder="Aa">
-                                <button class="send-btn"> <img src="../icons/send-message.png" alt="">   </button>
-                            </div>
-                        </label>
-                    </div>
                 </div>
             </div>
        
