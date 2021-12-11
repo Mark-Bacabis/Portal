@@ -1,3 +1,9 @@
+<?php
+    error_reporting(1);
+    session_start();
+    $messageLogin = $_SESSION['messlogin'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +34,9 @@
                     
                     <img src="../icons/user.png" alt="">
                     <center><h3>Login As Professor</h3></center>
+                    
                     <form action="../process/login.php" method="POST">
+                     
                         <label for="uname"> Employee ID </label>
                         <input type="text" name="uname" id="uname">
                         <br>
@@ -40,10 +48,16 @@
                         <input type="submit" value="LOGIN" name="loginBtn">
                         <p>Don't have an account? <a href="profRegister.php">Register here</a></p>
                     </form>
-                </div>
+                    
+                </div><p> <?=$messageLogin?> </p>
+          
+                
             </section>
-        
         </div>
+        
     </div>
 </body>
 </html>
+<?php
+    unset($_SESSION['messlogin']);
+?>

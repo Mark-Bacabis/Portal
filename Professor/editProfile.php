@@ -1,5 +1,9 @@
 <?php
     include('../include/query.php');
+    include('../include/db.php');
+    $message = $_SESSION['message'];
+    $selaAcc =  mysqli_query($profConn, "SELECT * FROM `professor_account` WHERE `emp_id` = '$empID' ");
+    $prof = mysqli_fetch_assoc($selaAcc);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +13,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/profInterface-style.css">
     <title>Quezon City University | Professor Login</title>
+      <!-- AJAX --> 
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
+
+    <script>
+        $(document).ready(function(){
+            $('#newPass').keyup(function(){
+                var newPass =  $('#newPass').val();
+                $('#new-pass-message').load('../ajaxProcess/password.php',{
+                    newPass:newPass
+                });
+            });
+
+            $('#conPass').keyup(function(){
+                var newPass = $('#newPass').val();
+                var conPass = $('#conPass').val();
+
+                $('#confirm-pass-message').load('../ajaxProcess/password.php',{
+                    newPassword:newPass,
+                    conPass:conPass
+                });
+            });
+        });
+    </script>
+
 <body>
     <?php include('../include/header.php'); ?> 
 
@@ -49,29 +77,49 @@
             </div>
         </section>
 
-        <section class = "change-prof">
-                <img id = "user" src="../icons/user.png" alt="">
-                <button class = "cDP"> Choose Profile </button>
-        </section>
-
-
-        
-        <section class = "change-pass">
-            <div class="pw">
-                <label for="curPass"> Current Password </label> <br>
-                <input type="password" name="curPass" id="curPass"><br>
-
-                <label for="newPass"> New Password <span> * 8 - 16 characters * </span> </label> <br>
-                <input type="password" name="newPass" id="newPass"><br>
-
-                <label for="conPass"> Confirm Password </label> <br>
-                <input type="password" name="conPass" id="conPass"><br>
+        <section class="admin-container">
+            <div class="edit-profile-container">
+                <section class = "change-prof">
+                    <form action="../process/changeProfile.php" method="POST" enctype="multipart/form-data">
+                        <img id="user" src="../profile/<?=$prof['profile']?>" alt="">
+                        <input type="file" name="profile" id="profile-btn">         
+                        <input type="submit" value="Change profile" name="profileBtn">             
+                    </form>
+                </section>
                 
-                <input type="submit" value="Change">
+                <section class = "change-pass">
+                    <form action="../process/changePassword.php" method="POST">
+                        <div class="form-control">
+                            <label for="curPass"> Current Password </label>
+                            <input type="password" name="curPass" id="curPass" required>
+                        </div>
+                    
+                        <div class="form-control">
+                            <label for="newPass">
+                                New Password <span id="new-pass-message"></span> 
+                            </label>
+                            <input type="password" name="newPass" id="newPass" required>
+                        </div>
+
+                        <div class="form-control">        
+                            <label for="conPass"> Confirm Password <span id="confirm-pass-message"> </span> </label> 
+                            <input type="password" name="conPass" id="conPass" required>
+                        </div>    
+                        <div class="form-control">
+                            <div class="message"> <?=$message?> </div> <input type="submit" value="Change" name="updateBtn">   
+                        </div>     
+                    </form>     
+                </section>
+               
             </div>
-                
-                
         </section>
+
+       
+
+<!--
+    
+        
+         -->
     </div>
 
 

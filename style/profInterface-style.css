@@ -152,6 +152,7 @@ body{
 .container .admin-panel .prof-profile .profile img{
   width: 70px;
   height: 70px;
+  border-radius: 50%;
 }
 
 .container .admin-panel .prof-profile .edit{
@@ -606,76 +607,167 @@ footer{
 
 
 
-  /*EDIT PROFILE*/
-  .change-prof{
-    position: relative;
-    background-color: white;
-    height: 380px;
-    width: 360px;
-    margin-top: 10%;
-    margin-left: 13%;
-  }
+/*EDIT PROFILE*/
 
-.change-prof img{
+.edit-profile-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 10%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+
+.edit-profile-container .change-prof{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 49%;
+    border-radius: 3px;
+    box-shadow: 0 7px 10px 0 rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-profile-container .change-prof form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-container .change-prof form input[type='file']{
+  width: 200px;
+  font-size: .9em;
+  padding: 3px;
+}
+
+.edit-profile-container .change-prof form input[type='submit']{
+  background: seagreen;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background ease .3s;
+}
+.edit-profile-container .change-prof form input[type='submit']:hover{
+  background: rgb(39, 117, 73);
+}
+
+.edit-profile-container .change-prof form img{
   height: 180px;
   width: 178px;
-  margin: 10% 25%;
-  margin-bottom: 1px;
+  border-radius: 50%;
 }
 
-.change-prof .cDP{
-  border: none;
-  padding: 5px 15px;
-  font-size: 1em;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-left: 30%;
-  background-color: gray;
-  color: white;
-}
 
-  .change-pass{
+
+
+.edit-profile-container .change-pass{
     background-color: white;
-    height: 380px;
-    width: 440px;
-    margin-top: 10%;
-    margin-left: .5%;
-  }
-
-  .change-pass .pw{
-    margin-left: 10%;
-    margin-top: 10%;
-  }
-
-  .change-pass .pw label span{
-    font-size: 12px;
-  }
-
-.change-pass .pw input[type = "password"]{
-  outline: none;
-  padding: 5px 10px;
-  width: 90%;
-  margin-bottom: 20px;
-  border: gray solid 1px;
-  border-radius: 5px;
+    height: 100%;
+    width: 50%;
+    border-radius: 3px;
+    box-shadow: 0 7px 10px 0 rgba(0,0,0,.2);
+    display: flex;
+    flex-direction: column;
+    padding: 7% 5%;
+    
+}
+.edit-profile-container .change-pass .form-control{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+    position: relative;
+}
+.edit-profile-container .change-pass .form-control .message{
+  margin-top: 10px;
+}
+.edit-profile-container .change-pass .form-control .message .success-message{
+  font-size: .9em;
+  letter-spacing: .3px;
+  width: max-content;
+  padding: 3px 10px;
+  background: rgb(38, 134, 35);
+  color: #fff;
+  border-radius: 3px;
 }
 
-.change-pass .pw input[type = "submit"]{
-  float: right;
-  margin-right: 10%;
-  margin-top: 3%;
-  border: none;
-  background-color: #00AC17;
-  color: white;
-  padding: 5px 12px;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: ease-in-out background .3s;
+.edit-profile-container .change-pass .form-control .message .danger-message{
+  font-size: .9em;
+  letter-spacing: .3px;
+  width: max-content;
+  padding: 3px 10px;
+  background: rgb(167, 33, 33);
+  color: #fff;
+  border-radius: 3px;
 }
 
-.change-pass .pw input[type = "submit"]:hover{
-  background-color: #039216;
+
+.edit-profile-container .change-pass .form-control label{
+  font-size: .95em;
+  letter-spacing: .5px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.edit-profile-container .change-pass .form-control label #new-pass-message{
+  font-size: .8em;
+  letter-spacing: .8px;
+  color: red;
+  font-weight: 600;
+}
+.edit-profile-container .change-pass .form-control label #confirm-pass-message{
+  font-size: .8em;
+  letter-spacing: .8px;
+  font-weight: 600;
+}
+
+.edit-profile-container .change-pass .form-control label #confirm-pass-message .success{
+  color:rgb(38, 116, 72);
+  
+}
+
+.edit-profile-container .change-pass .form-control label #confirm-pass-message .danger{
+  color: red;
+  
+}
+
+.edit-profile-container .change-pass .form-control input{
+    font-size: .9em;
+    padding: 5px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.418);
+    outline: none;
+}
+
+.edit-profile-container .change-pass .form-control input[type="submit"]{
+    width: max-content;
+    margin-top: 10px;
+    font-size: 1em;
+    background: seagreen;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 3px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background ease .3s;
+    position: absolute;
+    right: 1%;
+}
+
+.edit-profile-container .change-pass .form-control input[type="submit"]:hover{
+  background: rgb(38, 116, 72);
 }
 
 
@@ -1437,8 +1529,8 @@ button#personal-btn{
 /* GRADE CONTAINER */
 .grade-container{
   width: 100%;
+  padding: 1% 10%;
   height: 100%;
-  padding: 5% 10%;
 }
 
 .grade-container .header-grade{
@@ -1480,7 +1572,7 @@ button#personal-btn{
 
 .grade-container .grade-box{
   background-color: #fff;
-  padding: 2% 4%;
+  padding: 2%;
   overflow-y: scroll;
   height: 450px;
 }
@@ -1496,12 +1588,23 @@ button#personal-btn{
   letter-spacing: 1px;
   background-color: #023047;
   color: #fff;
+  font-size: .9em;
+  font-weight: 400;
+  padding: 0 5px;
+  width: max-content;
 }
 .grade-container .grade-box table td{
   font-size: 1em;
   padding: 10px;
   text-align: center;
 }
+.grade-container .grade-box table td .studIdText{
+  width: 50%;
+  background: none;
+  border: none;
+  font-size: 1em;
+}
+
 
 .grade-container .grade-box table td input{
   width: 35%;
@@ -1550,6 +1653,7 @@ button#personal-btn{
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .attendance-container .header-attendance .combo-boxes{
@@ -1584,6 +1688,24 @@ button#personal-btn{
   outline: none;
   border: none;
   font-size: 1.1em;
+  width: 270px;
+}
+
+.attendance-container .header-attendance .combo-boxes .upload input[type="submit"]{
+  background: cornflowerblue;
+  color: #fff;
+  outline: none;
+  padding: 4px 10px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  border: none;
+  transition: background ease .3s;
+  cursor: pointer;
+}
+
+.attendance-container .header-attendance .combo-boxes .upload input[type="submit"]:hover{
+  background: rgb(83, 124, 199);
 }
 
 .attendance-container .header-attendance h1{
@@ -1591,33 +1713,90 @@ button#personal-btn{
   text-transform: capitalize;
   color: rgba(0, 0, 0, 0.541);
   letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 
 
 .attendance-container .attendance-box{
   background-color: #fff;
-  padding: 2% 4%;
+  padding: 2%;
   overflow-y: scroll;
   height: 350px;
 }
 .attendance-container .attendance-box table{
   width: 100%;
 }
-
-.attendance-container .attendance-box table tr:nth-child(2n + 1){
-  background-color: #c5c5c5;
+.attendance-container .attendance-box table tr{
+  display: flex;
+  border-bottom: 1px solid black;
 }
 
 .attendance-container .attendance-box table th{
-  letter-spacing: 1px;
-  background-color: #023047;
+  background: var(--loginBoxColor);
   color: #fff;
-}
-.attendance-container .attendance-box table td{
   font-size: 1em;
-  padding: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  width: 25%;
+}
+
+
+.attendance-container .attendance-box table td{
+  padding: 5px 10px;
+  width: 25%;
   text-align: center;
+}
+
+.attendance-container .attendance-box table td:last-child, .attendance-box table th:last-child{
+  width: 50%;
+  border-left: 1px solid black;
+}
+
+.attendance-container .attendance-box .file-download{
+  background: rgba(0, 0, 0, 0.329);
+  width: max-content;
+  height: max-content;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 3px;
+  display: flex;
+  float: right;
+  transition: background ease .3s;
+ 
+}
+
+.attendance-container .attendance-box .file-download:hover{
+  background: rgba(0, 0, 0, 0.527);
+}
+
+.attendance-container .attendance-box .file-download:hover a{
+  filter: invert(1);
+  opacity: .8;
+}
+
+.attendance-container .attendance-box .file-download a{
+  color: #000;
+  font-size: .9em;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: .5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  filter: invert(0);
+  opacity: .5;
+  
+ 
+}
+
+.attendance-container .attendance-box .file-download a img{
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
 }
 /* ----ATTENDANCE CONTAINER */
 

@@ -1,7 +1,13 @@
 <?php
-    session_start();
+    include('../include/query.php');
     include('../include/db.php');
-    $empID = $_SESSION['empID'];
+
+    // SELECT SUBJECT AND SECTION HANDLED BY PROFESSOR
+    $selSecSub = mysqli_query($profConn, "SELECT * FROM `professor_section` WHERE `profID` = $empID");
+    $SecSub = mysqli_fetch_assoc($selSecSub);
+
+    $section = $SecSub['sectionName'];
+    $subject = $SecSub['subject'];
 
     // SELECT ALL INFO OF STUDENT
     $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
@@ -11,7 +17,15 @@
     ON b.sectionName = c.sectionname
     JOIN enrollment.studentinfo d
     ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND b.sectionName = 'SBIT-1A'");
+    WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = '$subject'");
+
+  
+
+    // SELECT ALL HANDLED SECTION
+    $selSec = mysqli_query($profConn, "SELECT DISTINCT sectionName FROM `professor_section` WHERE `profID` = '$empID' ");
+
+    // SELECT ALL HANDLED SUBJECT
+    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject'");
 
 ?>
 <!DOCTYPE html>
@@ -23,13 +37,42 @@
     <link rel="stylesheet" href="../style/profInterface-style.css">
     <title>Quezon City University | Professor Login</title>
 </head>
+  <!-- AJAX --> 
+  <script src="http://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#section').change(function(){
+            var section = $('#section').val();
+
+            $('.list-box').load('../ajaxProcess/fetchAllStudent.php',{
+                section:section
+            });
+
+            $('#subject').load('../ajaxProcess/fetchSubject.php',{
+                section: section
+            });
+        });
+
+        $('#subject').change(function(){
+            var subject = $('#subject').val();
+            var section = $('#section').val();
+
+            $('.list-box').load('../ajaxProcess/fetchAllStudent.php',{
+                subject:subject,
+                section:section
+            });
+        });
+    });
+</script>
+
+
+
 <body>
-
-
    <?php include('../include/header.php'); ?> 
 
    <div class="container">
-   <section class ="admin-panel">
+        <section class ="admin-panel">
             <div class="prof-profile">
                 <?php include('../include/sidebar.php') ?>
                 <a href="editProfile.php" class="edit"> Edit Profile</a>
@@ -58,29 +101,39 @@
 
             <div class="up-events">
                 <h2>Upcoming Events</h2>
-                <p><img src="../icons/party.png" alt="">Quezon City University U-Week</p>
-                <p><img src="../icons/party.png" alt="">QCU Foundation Day</p>
-                <p><img src="../icons/party.png" alt="">Buwan ng wika</p>
+                <p><img src="../icons/party.png" alt=""> Quezon City University U-Week</p>
+                <p><img src="../icons/party.png" alt=""> QCU Foundation Day</p>
+                <p><img src="../icons/party.png" alt=""> Buwan ng wika</p>
             </div>
         </section>
 
 
       <section class = "admin-container">  
-      <div class="list-container">
-            <div class="header-list">
-               <div class="combo-boxes">
-                  <div class="combo-box">
-                     <label for=""> Section </label>
-                     <select name="" id="">
-                           <option value="1st"> 1st </option>
-                           <option value="2nd"> 2nd </option>
-                           <option value="3rd"> 3rd </option>
-                           <option value="4th"> 4th </option>
-                     </select>
-                  </div>
-               </div>
-               <h1> Master List </h1>
+        <div class="list-container">
+
+        <div class="header-list">
+            <div class="combo-boxes">
+                <div class="combo-box">
+                    <label for=""> Section </label>
+                    <select id="section" name="section">
+                        <?php if(mysqli_num_rows($selSec) > 0) { 
+                            while($row = mysqli_fetch_assoc($selSec)) { ?>
+                                <option value="<?=$row['sectionName']?>"> <?=$row['sectionName']?> </option>
+                        <?php } } ?>
+                    </select>
+                </div>
+                <div class="combo-box">
+                    <label for=""> Subject </label>
+                    <select name="subject" id="subject">
+                        <?php if(mysqli_num_rows($selSub) > 0) { 
+                            while($row = mysqli_fetch_assoc($selSub)) { ?>
+                                <option value="<?=$row['subject']?>"> <?=$row['subject']?> </option>
+                        <?php } } ?>
+                    </select>
+                </div>
             </div>
+            <h1> Master List </h1>
+        </div>
 
             <div class="list-box">
               <table border="0">
@@ -107,7 +160,7 @@
               </table>
           </div>
 
-         </div>
+        </div>
       </section>
    </div>
 

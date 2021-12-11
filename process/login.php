@@ -16,7 +16,8 @@
             header('location: ../Professor/profInterface.php');
        }
        else if(mysqli_num_rows($selProf) < 1) {
-            header("location: ../Professor/profLogin.php?Account didn't exist");
+            $_SESSION['messlogin'] = '<span style="color:#fff; background:crimson; padding: 3px 10px; margin-top: 10px;"> Wrong Password! </span>';
+            header("location: ../Professor/profLogin.php?");
        }
     }
 ?>

@@ -25,7 +25,7 @@
     $selSec = mysqli_query($profConn, "SELECT DISTINCT sectionName FROM `professor_section` WHERE `profID` = '$empID' ");
 
     // SELECT ALL HANDLED SUBJECT
-    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject' ");
+    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject'");
 
 ?>
 <!DOCTYPE html>
@@ -106,14 +106,15 @@
             </div>
         </section>
 
-        <section class = "admin-container"> 
-          <div class="grade-container">
+    <section class = "admin-container">
+        <form action="../process/insertGrade.php" method="POST"> 
+            <div class="grade-container">
           
-          <div class="header-grade">
+            <div class="header-grade">
               <div class="combo-boxes">
                 <div class="combo-box">
                     <label for=""> Section </label>
-                    <select id="section">
+                    <select id="section" name="section">
                         <?php if(mysqli_num_rows($selSec) > 0) { 
                             while($row = mysqli_fetch_assoc($selSec)) { ?>
                                 <option value="<?=$row['sectionName']?>"> <?=$row['sectionName']?> </option>
@@ -122,7 +123,7 @@
                 </div>
                 <div class="combo-box">
                     <label for=""> Subject </label>
-                    <select name="" id="subject">
+                    <select name="subject" id="subject">
                         <?php if(mysqli_num_rows($selSub) > 0) { 
                             while($row = mysqli_fetch_assoc($selSub)) { ?>
                                 <option value="<?=$row['subject']?>"> <?=$row['subject']?> </option>
@@ -131,7 +132,7 @@
                 </div>
               </div>
               <h1> grade </h1>
-          </div>
+            </div>
 
           <div class="grade-box">
               <table border="0">
@@ -142,19 +143,18 @@
                         <th> Middlename </th>
                         <th> Grade  </th>
                         <th> Action  </th>
-                    </tr>
-                <form action="../process/insertGrade.php" method="POST">
+                    </tr>  
                     <?php
                         if(mysqli_num_rows($selStud) > 0){
                             while($row = mysqli_fetch_assoc($selStud)) { ?>
                             <tr>
-                                <td> <?=$row['StudentID']?> </td>
+                                <td> <input type="text" name="studID[]" value="<?=$row['StudentID']?>" class="studIdText" readonly> </td>
                                 <td> <?=$row['FullName-Last']?> </td>
                                 <td> <?=$row['FullName-First']?> </td>
                                 <td> <?=$row['FullName-Middle']?> </td>
-                                <td> <input type="text" name="grade[]"> </td>
+                                <td> <input type="text" name="grade[]" class ="grade" required> </td>
                                 <td> 
-                                    <select name="action[]">
+                                    <select name="action[]" class="action" onchange="disableGrade()">
                                         <option value="COMPLETE"> COMPLETE </option>
                                         <option value="INC"> INC </option>
                                         <option value="DROP"> DROP </option>
@@ -165,14 +165,35 @@
                     }
                     ?>  
               </table>
+              <input type="submit" value="Submit Grades" class="submit">
+            </form> 
           </div>
-            <input type="submit" value="Submit Grade" class="submit">
-        </form>          
         </div> 
-      </section>
+    </section>
    </div>
-
 </body>
+
+<script>
+    var grades = document.querySelectorAll('.grade');
+    var action = document.querySelectorAll('.action');
+
+    for(let i = 0; i < action.length; i++) {
+        action[i].addEventListener('change', (e)=> {    
+        
+            console.log(action[i].value);
+            if(action[i].value === 'COMPLETE'){
+                grades[i].readOnly = false;
+                grades[i].style.background = 'none';
+            }
+            else{
+                grades[i].value = '';
+                grades[i].readOnly = true;
+                grades[i].style.background = '#30383b30';
+            }
+        });
+    }
+  
+</script>
 <script src = "../js/date.js"> </script>
 <script src="../js/main.js"></script>
 </html>

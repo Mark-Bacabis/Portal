@@ -37,8 +37,7 @@
 
 
 ?>
-
-<table border="0">
+              <table border="0">
                     <tr>
                         <th> Student ID </th>
                         <th> Lastname </th>
@@ -46,19 +45,18 @@
                         <th> Middlename </th>
                         <th> Grade  </th>
                         <th> Action  </th>
-                    </tr>
-                <form action="../process/insertGrade.php" method="POST">
+                    </tr>  
                     <?php
                         if(mysqli_num_rows($selStud) > 0){
-                            while($row = mysqli_fetch_assoc($selStud)){ ?>
-                              <tr>
-                                <td> <?=$row['StudentID']?> </td>
+                            while($row = mysqli_fetch_assoc($selStud)) { ?>
+                            <tr>
+                                <td> <input type="text" name="studID[]" value="<?=$row['StudentID']?>" class="studIdText" readonly> </td>
                                 <td> <?=$row['FullName-Last']?> </td>
                                 <td> <?=$row['FullName-First']?> </td>
                                 <td> <?=$row['FullName-Middle']?> </td>
-                                <td> <input type="text" name="grade[]"> </td>
+                                <td> <input type="text" name="grade[]" class ="grade" numberonly required> </td>
                                 <td> 
-                                    <select name="action[]">
+                                    <select name="action[]" class="action">
                                         <option value="COMPLETE"> COMPLETE </option>
                                         <option value="INC"> INC </option>
                                         <option value="DROP"> DROP </option>
@@ -69,3 +67,30 @@
                     }
                     ?>  
               </table>
+              <input type="submit" value="Submit Grades" class="submit">
+            </form> 
+
+
+
+<script>
+    var grades = document.querySelectorAll('.grade');
+    var action = document.querySelectorAll('.action');
+
+    for(let i = 0; i < action.length; i++) {
+        action[i].addEventListener('change', (e)=> {    
+        
+            console.log(action[i].value);
+            if(action[i].value === 'COMPLETE'){
+                grades[i].readOnly = false;
+                grades[i].style.background = 'none';
+            }
+            else{
+                grades[i].value = '';
+                grades[i].readOnly = true;
+                grades[i].style.background = '#30383b30';
+            }
+        });
+    }
+  
+                
+</script>

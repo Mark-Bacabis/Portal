@@ -27,10 +27,13 @@
     $monthName = date("M");
     $year = date("Y");
     $month = date("F");
-
-    
     $dateNow = "$month $day, $year";
-    //echo $dateNow;
+
+
+    // FETCH ALL EVENTS THIS CURRENT MONTH 
+    $fetchAllEvents = mysqli_query($profConn, "SELECT * FROM `calendar` WHERE `date` LIKE '%$monthName%' AND `date` != '$dateNow' ");
+
+
     //SELECT ALL ANNOUNCEMENT TODAY
     $fetchAnnouncementToday = mysqli_query($profConn, "SELECT * FROM `calendar` WHERE `date` = '$dateNow'");
 
@@ -114,11 +117,13 @@
                     </div>
 
                     <div class="sched">
-                        <h3>Schedule for the month of October</h3>
-                        <p> Last day of dropping subjects <span> October 1  </span> </p>
-                        <p> Last day of dropping subjects <span> October 1  </span> </p>
-                        <p> Last day of dropping subjects <span> October 1  </span> </p>
-                        <p> Last day of dropping subjects <span> October 1  </span> </p>
+                        <h3>Schedule for the month of <?=$month?></h3>
+                        <?php if(mysqli_num_rows($fetchAllEvents) > 0) {
+                            while($eventThisMonth = mysqli_fetch_assoc($fetchAllEvents)) { ?>
+                        <p> <?=$eventThisMonth['event']?> <span> <?=$eventThisMonth['date']?>  </span> </p>
+                       <?php } } else{
+                           echo "<h3> No events this month </h3>";
+                       } ?>
                     </div>
 
                     <div class="announcement">

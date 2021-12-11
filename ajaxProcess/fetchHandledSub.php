@@ -4,7 +4,8 @@
 
    include('../include/db.php');
 
-   if(isset($_POST['section'])) { 
+   echo $_POST['sections'];
+  /* if(isset($_POST['section'])) { 
       $section = $_POST['section'];
 
       // SELECT ALL HANDLED SUBJECT
@@ -15,5 +16,5 @@
          <option value="<?=$row['subject']?>"> <?=$row['subject']?> </option>
    <?php } 
       }
-   }
+   }*/
 ?>
