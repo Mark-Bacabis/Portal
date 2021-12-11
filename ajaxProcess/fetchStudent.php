@@ -16,7 +16,7 @@
       ON b.sectionName = c.sectionname
       JOIN enrollment.studentinfo d
       ON c.StudentID = d.StudentID
-      WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = 'AR101'");
+      WHERE b.profID = '$empID' AND b.sectionName = '$section'");
    }
 
    if(isset($_POST['subject'])){
