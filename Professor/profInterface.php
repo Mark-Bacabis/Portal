@@ -2,6 +2,41 @@
     include('../include/query.php');
     include('../include/db.php');
 
+    // SELECT ALL MY HANDLED STUDENTS
+    $fetchMyStudent = mysqli_query($enConn, "SELECT COUNT(DISTINCT students.`FullName-Last`) as myStudents FROM student_sections as stud_sec JOIN studentinfo as students ON stud_sec.StudentID = students.StudentID JOIN professor_portal.professor_section as prof_sec ON prof_sec.sectionName = stud_sec.sectionname WHERE prof_sec.profID = '$empID'");
+
+    // SELECT ALL MY HANDLED SECTIONS
+    $fetchMySection = mysqli_query($enConn, "SELECT COUNT(DISTINCT prof_sec.sectionName) as mySections FROM enrollment.student_sections as stud_sec
+    JOIN professor_portal.professor_section as prof_sec
+    ON prof_sec.sectionName = stud_sec.sectionname
+    WHERE prof_sec.profID = '$empID'");
+
+    // SELECT ALL MY SUBJECTS
+    $fetchMySubject = mysqli_query($profConn, "SELECT COUNT(DISTINCT subject) as mySubjects FROM `professor_section` WHERE profID = '$empID'");
+
+    $countMySubject = mysqli_fetch_assoc($fetchMySubject);
+    $countMySection = mysqli_fetch_assoc($fetchMySection);
+    $countMyStudent = mysqli_fetch_assoc($fetchMyStudent);
+
+    // SELECT ALL ANNOUNCMENTS 
+    $fetchAllAnnouncement = mysqli_query($profConn, "SELECT * FROM `announce` ORDER BY `date` DESC ");
+
+    $dateToday = date('m-d-y');
+    $day = date("d");
+    $dayName = date("l");
+    $monthName = date("M");
+    $year = date("Y");
+    $month = date("F");
+
+    
+    $dateNow = "$month $day, $year";
+    //echo $dateNow;
+    //SELECT ALL ANNOUNCEMENT TODAY
+    $fetchAnnouncementToday = mysqli_query($profConn, "SELECT * FROM `calendar` WHERE `date` = '$dateNow'");
+
+    $todaysAnnouncement = mysqli_fetch_assoc($fetchAnnouncementToday);
+
+   // echo $todaysAnnouncement['announcement'];
 ?>
 
 <!DOCTYPE html>
@@ -60,9 +95,9 @@
                 <h2 id = "overview"> <img src="../icons/open-book.png" alt=""> Overview</h2>
 
                 <div class="summary">
-                    <div class="boxes"><p> Total number of students </p> <h1> 250 </h1> </div>
-                    <div class="boxes"><p> Total number of Sections </p> <h1> 5 </h1> </div>
-                    <div class="boxes"><p> Total number of subjects </p> <h1> 4 </h1> </div>
+                    <div class="boxes"><p> Total number of students </p> <h1> <?=$countMyStudent['myStudents'];?> </h1> </div>
+                    <div class="boxes"><p> Total number of Sections </p> <h1> <?=$countMySection['mySections']?> </h1> </div>
+                    <div class="boxes"><p> Total number of subjects </p> <h1> <?=$countMySubject['mySubjects']?> </h1> </div>
                 </div>
             </div>
 
@@ -71,9 +106,10 @@
                     <h1>Quezon City University Calendar</h1>
 
                     <div class="date">
-                            <h1>11</h1>
-                            <h2>Friday, <span>Oct</span></h2>
-                            <h3>1st Day of Exam</h3>
+                            <h1><?=$day?></h1>
+                            <h2><?=$dayName?>, <span><?=$monthName?></span></h2>
+                            <h3><?php if(mysqli_num_rows($fetchAnnouncementToday) < 1 ){ echo "No announcement"; }
+                            else{ echo $todaysAnnouncement['event']; } ?></h3>
                         
                     </div>
 
@@ -87,25 +123,15 @@
 
                     <div class="announcement">
                         <h1> <img src="../icons/announcement.png" alt=""> Announcements </h1>
+                        <?php if(mysqli_num_rows($fetchAllAnnouncement) > 0) { 
+                            while ($announcements = mysqli_fetch_assoc($fetchAllAnnouncement)) {  ?>
                         <div class="announce-box">
-                            <h3> September 21, 2021</h3>
-                            <p>Want to know more about UniFAST-UAQTEA?
-                               How about Free Higher Education? or how to apply for Tertiary Education
-                               savail stipend or allowance per Academic Year? Say no more scholars! Because 
-                               today, September 24, 2021 at 2:00 - 3:00 pm, we will be conducting an Online 
-                               Orientation via zoom, and live at our Facebook Page. This orientation is exclusive 
-                               only for 2nd, 3rd, & 4th Year QCU Students (all courses).See you there scholars!</p>
+                            <h3> <?=$announcements['date']?> <span class="announce-time" > <?=$announcements['time']?></span> </h3>
+                            <p><?=$announcements['announcement']?></p>
                         </div> 
+                        <?php } } ?>
 
-                        <div class="announce-box">
-                            <h3> September 21, 2021</h3>
-                            <p>Want to know more about UniFAST-UAQTEA?
-                               How about Free Higher Education? or how to apply for Tertiary Education
-                               savail stipend or allowance per Academic Year? Say no more scholars! Because 
-                               today, September 24, 2021 at 2:00 - 3:00 pm, we will be conducting an Online 
-                               Orientation via zoom, and live at our Facebook Page. This orientation is exclusive 
-                               only for 2nd, 3rd, & 4th Year QCU Students (all courses).See you there scholars!</p>
-                        </div> 
+                
                     </div>
 
 
