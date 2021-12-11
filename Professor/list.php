@@ -3,7 +3,7 @@
     include('../include/db.php');
 
     // SELECT SUBJECT AND SECTION HANDLED BY PROFESSOR
-    $selSecSub = mysqli_query($profConn, "SELECT * FROM `professor_section` WHERE `profID` = $empID");
+    $selSecSub = mysqli_query($profConn, "SELECT * FROM `professor_section` WHERE `profID` = '$empID' ");
     $SecSub = mysqli_fetch_assoc($selSecSub);
 
     $section = $SecSub['sectionName'];
