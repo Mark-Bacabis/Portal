@@ -21,7 +21,7 @@
          
          if(in_array($img_ex_lc, $extension)) { // check if the selected file contains 'png', 'jpeg', or 'jpg' extension
             $new_img_name = uniqid('sp', true).'.'.$img_ex_lc; // changing the name of selected file
-            $img_upload_path = 'C:\xampp\htdocs\Portal\profile/'.$new_img_name;
+            $img_upload_path = 'D:\XAMPP\htdocs\Portal\profile/'.$new_img_name;
             move_uploaded_file($img_tmp_name, $img_upload_path);
 
             $updProfile = mysqli_query($profConn, "UPDATE `professor_account` SET `profile`= '$new_img_name' WHERE `emp_id` = '$empID' ");
