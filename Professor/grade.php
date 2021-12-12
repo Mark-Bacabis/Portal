@@ -27,7 +27,7 @@
     // SELECT ALL HANDLED SUBJECT
     $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject'");
 
-?>
+?>op
 <!DOCTYPE html>
 <html lang="en">
 <head>
