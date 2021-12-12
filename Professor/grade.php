@@ -10,20 +10,19 @@
     $subject = $SecSub['subject'];
 
     // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal a
-    JOIN enrollment.student_sections c
+    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal.professor_section as b 
+    JOIN enrollment.student_sections as c
     ON b.sectionName = c.sectionname
-    JOIN enrollment.studentinfo d
+    JOIN enrollment.studentinfo as d
     ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = '$subject'");
-
+    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject' ");
   
 
     // SELECT ALL HANDLED SECTION
     $selSec = mysqli_query($profConn, "SELECT DISTINCT sectionName FROM `professor_section` WHERE `profID` = '$empID' ");
 
     // SELECT ALL HANDLED SUBJECT
-    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject'");
+    $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `sectionName`='$section' ");
 
 ?>
 <!DOCTYPE html>
@@ -42,13 +41,16 @@
     $(document).ready(function(){
         $('#section').change(function(){
             var section = $('#section').val();
+            var subject = $('#subject').val();
 
             $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
-                section:section
+                section:section,
+                subject:subject
             });
 
             $('#subject').load('../ajaxProcess/fetchSubject.php',{
-                section: section
+                section: section,
+                subject:subject
             });
         });
 
@@ -56,7 +58,7 @@
             var subject = $('#subject').val();
             var section = $('#section').val();
 
-            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
+            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{ 
                 subject:subject,
                 section:section
             });

@@ -19,13 +19,9 @@
    $mail = new PHPMailer();
    $mail ->isSMTP();
    $mail ->isHTML(true);
-<<<<<<< HEAD
-   $mail ->Host = 'smtp.gmail.com'; 
-   $mail ->SMTPAuth = 'true';
-=======
+
    $mail ->Host = 'smtp.gmail.com';
    $mail ->SMTPAuth = true;
->>>>>>> fd331132092ee12233c51d3d4b0a4ae90fd3818f
    $mail ->Username = 'qcu.online.portal@gmail.com';
    $mail ->Password = '123456789Abc!';
    $mail ->SMTPSecure = 'ssl';
@@ -48,10 +44,6 @@
       echo "Email sent...";
    }
    else{
-<<<<<<< HEAD
-      echo "Error";
-=======
       echo "Error!".$mail->ErrorInfo;
->>>>>>> fd331132092ee12233c51d3d4b0a4ae90fd3818f
    }
 ?>

@@ -7,7 +7,7 @@
     $dateNow = date("m-d-y");
     $timeNow = date("h:i:sa");
 
-    $selProfInfo = mysqli_query($hrConn, "SELECT * FROM `tblemployees` WHERE EMPLOYEEID = '$empID'");
+    $selProfInfo = mysqli_query($profConn, "SELECT * FROM `personal_info` WHERE emp_id = '$empID'");
     $profInfo = mysqli_fetch_assoc($selProfInfo);
     $lname = $profInfo['LNAME'];
     echo $lname;

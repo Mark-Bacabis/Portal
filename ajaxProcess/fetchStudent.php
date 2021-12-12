@@ -3,36 +3,31 @@
    $empID = $_SESSION['empID'];
 
    include('../include/db.php');
+   $section = $_POST['section'];
+   $subject = $_POST['subject'];
+     
+  
 
    if(isset($_POST['section'])){
-      $section = $_POST['section'];
-
-      include('../include/db.php');
-      // SELECT ALL INFO OF STUDENT
-      $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
-      JOIN professor_portal.professor_section b
-      ON a.EMPLOYEEID = b.profID
-      JOIN enrollment.student_sections c
-      ON b.sectionName = c.sectionname
-      JOIN enrollment.studentinfo d
-      ON c.StudentID = d.StudentID
-      WHERE b.profID = '$empID' AND b.sectionName = '$section'");
+ 
+    // SELECT ALL INFO OF STUDENT
+    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal.professor_section as b 
+    JOIN enrollment.student_sections as c
+    ON b.sectionName = c.sectionname
+    JOIN enrollment.studentinfo as d
+    ON c.StudentID = d.StudentID
+    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject' ");
    }
 
    if(isset($_POST['subject'])){
-      $section = $_POST['section'];
-      $subject = $_POST['subject'];
 
-      include('../include/db.php');
-      // SELECT ALL INFO OF STUDENT
-      $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
-      JOIN professor_portal.professor_section b
-      ON a.EMPLOYEEID = b.profID
-      JOIN enrollment.student_sections c
-      ON b.sectionName = c.sectionname
-      JOIN enrollment.studentinfo d
-      ON c.StudentID = d.StudentID
-      WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = '$subject'");
+    // SELECT ALL INFO OF STUDENT
+    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal.professor_section as b 
+    JOIN enrollment.student_sections as c
+    ON b.sectionName = c.sectionname
+    JOIN enrollment.studentinfo as d
+    ON c.StudentID = d.StudentID
+    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject' ");
    }
 
 

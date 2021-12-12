@@ -135,8 +135,6 @@
                             <p><?=$announcements['announcement']?></p>
                         </div> 
                         <?php } } ?>
-
-                
                     </div>
 
 
@@ -144,37 +142,8 @@
             </div>
 
 
-
-            <footer>
-            <div class="footer-primary">
-                <div class="footer-info">
-                    <h2> ABOUT QCU </h2>
-                    <ul>
-                        <li> <a href="#"> About us</a> </li>
-                        <li> <a href="#"> Privacy Policy </a> </li>
-                        <li> <a href="#"> Terms and Agreement </a> </li>
-                    </ul>
-                </div>
-
-                <div class="footer-info">
-                    <h2> QUICK LINKS </h2>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Mikeni Mikeni </a> </li>
-                        <li> <a href="#"> Dugdug Doremi </a> </li>
-                    </ul>
-            </div>
-            <div class="footer-info">
-                <h2> SCHOOL BRANCHES </h2>
-                <ul>
-                    <li> <a href="#"> San Bartolome </a> </li>
-                    <li> <a href="#"> Batasan </a> </li>
-                    <li> <a href="#"> San Francisco </a> </li>
-                </ul>
-            </div>
-                </div>
-            </footer>
         </section>
+
     
 
     </div>

@@ -372,6 +372,9 @@ body{
 
 
 
+
+
+
 .container .content-container{
   display: flex;
   padding: 0 10%;
@@ -528,58 +531,6 @@ body{
 
 
 
-
-/* FOOTER */
-footer{
-    width: 100%;
-    height: max-content;
-    background: var(--titleText);
-  }
-  
-  footer .payment-footer{
-    height: max-content;
-    padding: 5px 0;
-    background: #002347;
-    text-align: center;
-  }
-  
-  footer .payment-footer h2{
-    color: var(--titleText);
-  }
-  
-  
-  
-  footer .footer-primary{
-    display: flex;
-    padding: 2% 10%;
-    background: #002347;
-    color: white;
-    
-  }
-  
-  footer .footer-primary .footer-info{
-    width: 100%;
-    padding: 0 5%;
-  }
-  footer .footer-primary ul{
-    line-height: 32px;
-    
-  }
-  footer .footer-primary ul li{
-    list-style: none;
-    margin: 10px 0;
-  }
-  
-  footer .footer-primary ul li a{
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items:center;
-  }
-  footer .footer-primary ul li a img{
-    width: 30px;
-    margin-right: 7px;
-  }
 
 
 
