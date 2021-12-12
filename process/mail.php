@@ -21,7 +21,7 @@
    $mail = new PHPMailer();
    $mail ->isSMTP();
    $mail ->isHTML(true);
-   $mail ->Host = 'smtp.gmail.com';
+   $mail ->Host = 'smtp.gmail.com'; 
    $mail ->SMTPAuth = 'true';
    $mail ->Username = 'qcu.online.portal@gmail.com';
    $mail ->Password = '123456789Abc!';
@@ -37,13 +37,14 @@
 
    $mail ->Send();
 
+   $mail ->smtpClose();  
+
+   
    if($mail){ 
       //header("location:../Professor/profLogin.php");
       echo "Email sent...";
    }
    else{
-      echo "Error!";
+      echo "Error";
    }
-
-   $mail ->smtpClose();  
 ?>

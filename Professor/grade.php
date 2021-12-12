@@ -10,9 +10,7 @@
     $subject = $SecSub['subject'];
 
     // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
-    JOIN professor_portal.professor_section b
-    ON a.EMPLOYEEID = b.profID
+    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal a
     JOIN enrollment.student_sections c
     ON b.sectionName = c.sectionname
     JOIN enrollment.studentinfo d
@@ -27,7 +25,7 @@
     // SELECT ALL HANDLED SUBJECT
     $selSub = mysqli_query($profConn, "SELECT DISTINCT `subject` FROM `professor_section` WHERE `profID` = '$empID' AND `subject` = '$subject'");
 
-?>op
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
