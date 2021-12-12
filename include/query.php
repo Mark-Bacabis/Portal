@@ -10,9 +10,9 @@
     }
 
     // SELECT ALL INFORMATION ABOUT PROFESSOR WHO SIGNED IN
-    $selProf = mysqli_query($hrConn, "SELECT * FROM hrdb.tblemployees as a 
+    $selProf = mysqli_query($profConn, "SELECT * FROM professor_portal.professor_account as a 
     JOIN professor_portal.professor_account as b 
-    ON a.EMPLOYEEID = b.emp_id
+    ON a.emp_id = b.emp_id
     WHERE b.emp_id = '$empID'");
 
     $prof = mysqli_fetch_assoc($selProf);

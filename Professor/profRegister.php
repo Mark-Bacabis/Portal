@@ -13,7 +13,7 @@
         </div>
             <div class="qcu"><h1>Quezon City University <span>Online Portal</span></h1>
             </div>
-    </div>
+    </div>  
 
 
     <div class="container">
