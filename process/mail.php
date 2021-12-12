@@ -2,13 +2,11 @@
    session_start();
 
    use PHPMailer\PHPMailer\PHPMailer;
-   use PHPMailer\PHPMailer\Exception;
-   use PHPMailer\PHPMailer\SMTP;
 
    //include('../include/db.php');
-   require '../include/PHPMailer.php';
-   require '../include/SMTP.php';
-   require '../include/Exception.php';
+   require_once '../include/PHPMailer.php';
+   require_once '../include/SMTP.php';
+   require_once '../include/Exception.php';
 
    $email = $_SESSION['email'];     
    $lname = $_SESSION['lname'];
@@ -22,11 +20,11 @@
    $mail ->isSMTP();
    $mail ->isHTML(true);
    $mail ->Host = 'smtp.gmail.com';
-   $mail ->SMTPAuth = 'true';
+   $mail ->SMTPAuth = true;
    $mail ->Username = 'qcu.online.portal@gmail.com';
    $mail ->Password = '123456789Abc!';
-   $mail ->SMTPSecure = 'tls';
-   $mail ->Port = '587';
+   $mail ->SMTPSecure = 'ssl';
+   $mail ->Port = 465;
 
    // RECEPIENTS
    $mail ->Subject = 'QCU Professor Portal Account';
@@ -42,7 +40,7 @@
       echo "Email sent...";
    }
    else{
-      echo "Error!";
+      echo "Error!".$mail->ErrorInfo;
    }
 
    $mail ->smtpClose();  
