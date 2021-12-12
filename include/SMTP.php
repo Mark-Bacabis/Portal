@@ -49,7 +49,11 @@ class SMTP
      *
      * @var int
      */
+<<<<<<< HEAD
     const DEFAULT_PORT = 25;
+=======
+    const DEFAULT_PORT = 465; //25
+>>>>>>> 7256d46124ea4f6c3c8206f760fcc7549ef97bdf
 
     /**
      * The maximum line length allowed by RFC 5321 section 4.5.3.1.6,
