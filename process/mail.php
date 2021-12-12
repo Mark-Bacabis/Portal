@@ -1,32 +1,32 @@
 <?php
    session_start();
-   //include('../include/db.php');
-   require '../include/PHPMailer.php';
-   require '../include/SMTP.php';
-   require '../include/Exception.php';
-      
+
    use PHPMailer\PHPMailer\PHPMailer;
    use PHPMailer\PHPMailer\Exception;
    use PHPMailer\PHPMailer\SMTP;
 
+   //include('../include/db.php');
+   require '../include/PHPMailer.php';
+   require '../include/SMTP.php';
+   require '../include/Exception.php';
 
    $email = $_SESSION['email'];     
    $lname = $_SESSION['lname'];
    $pass = $_SESSION['pass'];
-   echo "$email $lname $pass" ;
+   //echo "$email $lname $pass" ;
 
 
    // FUNCTION FOR SENDING A MESSAGE TO STUDENT'S EMAIL   
    // SERVER 
    $mail = new PHPMailer();
-   $mail -> isSMTP();
+   $mail ->isSMTP();
    $mail ->isHTML(true);
-   $mail -> Host = 'smtp.gmail.com';
-   $mail -> SMTPAuth = 'true';
+   $mail ->Host = 'smtp.gmail.com';
+   $mail ->SMTPAuth = 'true';
    $mail ->Username = 'qcu.online.portal@gmail.com';
    $mail ->Password = '123456789Abc!';
-   $mail -> SMTPSecure = 'tls';
-   $mail -> Port = '587';
+   $mail ->SMTPSecure = 'tls';
+   $mail ->Port = '587';
 
    // RECEPIENTS
    $mail ->Subject = 'QCU Professor Portal Account';
