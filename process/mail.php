@@ -4,9 +4,9 @@
    use PHPMailer\PHPMailer\PHPMailer;
 
    //include('../include/db.php');
-   require_once '../include/PHPMailer.php';
-   require_once '../include/SMTP.php';
-   require_once '../include/Exception.php';
+   require '../phpMailer/PHPMailer.php';
+   require '../phpMailer/SMTP.php';
+   require '../phpMailer/Exception.php';
 
    $email = $_SESSION['email'];     
    $lname = $_SESSION['lname'];
@@ -24,8 +24,8 @@
    $mail ->SMTPAuth = true;
    $mail ->Username = 'qcu.online.portal@gmail.com';
    $mail ->Password = '123456789Abc!';
-   $mail ->SMTPSecure = 'ssl';
-   $mail ->Port = 465;
+   $mail ->SMTPSecure = 'tls';
+   $mail ->Port = 587;
 
    // RECEPIENTS
    $mail ->Subject = 'QCU Professor Portal Account';
@@ -36,9 +36,7 @@
 
    $mail ->Send();
 
-   $mail ->smtpClose();  
-
-   
+    
    if($mail){ 
       //header("location:../Professor/profLogin.php");
       echo "Email sent...";
@@ -46,4 +44,8 @@
    else{
       echo "Error!".$mail->ErrorInfo;
    }
+
+   $mail ->smtpClose();  
+
+  
 ?>
