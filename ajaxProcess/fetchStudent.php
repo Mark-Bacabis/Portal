@@ -3,32 +3,16 @@
    $empID = $_SESSION['empID'];
 
    include('../include/db.php');
-   $section = $_POST['section'];
+   $section = $_POST['sections'];
    $subject = $_POST['subject'];
-     
-  
 
-   if(isset($_POST['section'])){
- 
     // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal.professor_section as b 
+    $selStud = mysqli_query($enConn, "SELECT DISTINCT d.`StudentID`, d.`FullName-Last`, d.`FullName-First`, d.`Fullname-Middle` as middle FROM professor_portal.professor_section as b 
     JOIN enrollment.student_sections as c
     ON b.sectionName = c.sectionname
     JOIN enrollment.studentinfo as d
     ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject' ");
-   }
-
-   if(isset($_POST['subject'])){
-
-    // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM professor_portal.professor_section as b 
-    JOIN enrollment.student_sections as c
-    ON b.sectionName = c.sectionname
-    JOIN enrollment.studentinfo as d
-    ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject' ");
-   }
+    WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject'");
 
 
 ?>
@@ -48,7 +32,7 @@
                                 <td> <input type="text" name="studID[]" value="<?=$row['StudentID']?>" class="studIdText" readonly> </td>
                                 <td> <?=$row['FullName-Last']?> </td>
                                 <td> <?=$row['FullName-First']?> </td>
-                                <td> <?=$row['FullName-Middle']?> </td>
+                                <td> <?=$row['middle']?> </td>
                                 <td> <input type="text" name="grade[]" class ="grade" numberonly required> </td>
                                 <td> 
                                     <select name="action[]" class="action">

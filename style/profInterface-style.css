@@ -182,12 +182,12 @@ body{
 .container .admin-panel .navigation{
   padding: 3px 30px;
   border-bottom: 2px solid gray;
-  height: 46%;
+  height: 72%;
 }
 
 .container .admin-panel .navigation ul li{
   list-style: none;
-  margin-bottom: 12px;
+  margin: 25px 0;
   
 }
 
@@ -431,10 +431,6 @@ body{
   font-weight: bolder;
   color: red;
   margin-left: 30px;
-}
-
-.container .content-container .first-container .announcement{
-  padding-top: 20px;
 }
 
 .container .content-container .first-container .announcement h1{

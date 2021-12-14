@@ -21,7 +21,7 @@
          
          if(in_array($file_ex_lc, $extension)) { // check if the selected file contains 'png', 'jpeg', or 'jpg' extension
             
-            $file_upload_path = 'C:\xampp\htdocs\Portal\files/'.$file_name;
+            $file_upload_path = 'D:\xampp\htdocs\Portal\files/'.$file_name;
             move_uploaded_file($file_tmp_name, $file_upload_path);
 
             //echo "$empID $section $subject $file_name";

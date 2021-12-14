@@ -19,7 +19,7 @@
       }
       else if($action[$i] == 'DROP'){
          $grades[$i] = 'DROP';
-         $remarks = "Failed";
+         $remarks = "DROPPED";
       }
       else{
          if($grades[$i] >= 75 && $grades[$i] <= 100){
@@ -41,6 +41,7 @@
    }
 
    if($ins){
+      $_SESSION['Mess'] = "Grade Submitted";
       header('location:../Professor/grade.php');
    } 
 

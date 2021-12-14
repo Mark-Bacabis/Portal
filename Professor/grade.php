@@ -40,15 +40,27 @@
 <script>
     $(document).ready(function(){
        $('#section').change(function(){
-           $('#subject').load('../ajaxProcess/fetchSubject.php',{
+           var section = $('#section').val();
+           var subject = $('#subject').val();
 
+           $('#subject').load('../ajaxProcess/fetchSubject.php',{
+                section: section
+           });
+
+           $('.grade-box').load('../ajaxProcess/fetchAllStudent.php', {
+                section: section,
+                subject: subject
            });
        });
 
        $('#subject').change(function(){
-           $('#section').load('../ajaxProcess/fetchSection.php',{
+           var subject = $('#subject').val();
+           var section = $('#section').val();
 
-           })
+            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
+                sections:section,
+                subject: subject
+            });
        });
 
     });
@@ -153,6 +165,7 @@
               <input type="submit" value="Submit Grades" class="submit">
             </form> 
           </div>
+          <p><?= $_SESSION['Mess']?></p>
         </div> 
     </section>
    </div>
@@ -182,3 +195,7 @@
 <script src = "../js/date.js"> </script>
 <script src="../js/main.js"></script>
 </html>
+
+<?php
+    unset($_SESSION['Mess']);
+?>

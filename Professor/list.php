@@ -9,15 +9,13 @@
     $section = $SecSub['sectionName'];
     $subject = $SecSub['subject'];
 
-    // SELECT ALL INFO OF STUDENT
-    $selStud = mysqli_query($enConn, "SELECT * FROM hrdb.tblemployees a
-    JOIN professor_portal.professor_section b
-    ON a.EMPLOYEEID = b.profID
-    JOIN enrollment.student_sections c
-    ON b.sectionName = c.sectionname
-    JOIN enrollment.studentinfo d
-    ON c.StudentID = d.StudentID
-    WHERE b.profID = '$empID' AND b.sectionName = '$section' AND b.subject = '$subject'");
+      // SELECT ALL INFO OF STUDENT
+        $selStud = mysqli_query($enConn, "SELECT DISTINCT d.`StudentID`, d.`FullName-Last`, d.`FullName-First`, d.`Fullname-Middle` as middle FROM professor_portal.professor_section as b 
+        JOIN enrollment.student_sections as c
+        ON b.sectionName = c.sectionname
+        JOIN enrollment.studentinfo as d
+        ON c.StudentID = d.StudentID
+        WHERE b.profID = '$empID' AND c.sectionName = '$section' AND b.subject = '$subject'");
 
   
 
@@ -44,9 +42,11 @@
     $(document).ready(function(){
         $('#section').change(function(){
             var section = $('#section').val();
+            var subject = $('#subject').val();
 
             $('.list-box').load('../ajaxProcess/fetchAllStudent.php',{
-                section:section
+                sectionss:section,
+                subjectss:subject
             });
 
             $('#subject').load('../ajaxProcess/fetchSubject.php',{
@@ -59,8 +59,8 @@
             var section = $('#section').val();
 
             $('.list-box').load('../ajaxProcess/fetchAllStudent.php',{
-                subject:subject,
-                section:section
+                subjectss:subject,
+                sectionss:section
             });
         });
     });
@@ -144,7 +144,7 @@
                                     <td> <?=$row['StudentID']?> </td>
                                     <td> <?=$row['FullName-Last']?> </td>
                                     <td> <?=$row['FullName-First']?> </td>
-                                    <td> <?=$row['FullName-Middle']?> </td>
+                                    <td> <?=$row['middle']?> </td>
                                 </tr>    
                     <?php   }
                         }

@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="../style/profInterface-style.css">
     <link rel="stylesheet" href="../style/calendar.css">
     <title>Quezon City University | Professor Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/> <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" /> 
 </head>
 <body>
     
@@ -140,24 +141,7 @@
                             </div>
                             <div class="days"> </div>
                         </div>
-                    </div>
-
-                    <div class="date">
-                        <h1><?=$day?></h1>
-                        <h2><?=$dayName?>, <span><?=$monthName?></span></h2>
-                        <h3><?php if(mysqli_num_rows($fetchAnnouncementToday) < 1 ){ echo "No announcement"; }
-                        else{ echo $todaysAnnouncement['event']; } ?></h3>
-                    </div>
-
-                    <div class="sched">
-                        <h3> Schedule for the month of <?=$month?></h3>
-                        <?php if(mysqli_num_rows($fetchAllEvents) > 0) {
-                            while($eventThisMonth = mysqli_fetch_assoc($fetchAllEvents)) { ?>
-                        <p> <?=$eventThisMonth['event']?> <span> <?=$eventThisMonth['date']?>  </span> </p>
-                       <?php } } else{
-                           echo "<h3> No events this month </h3>";
-                       } ?>
-                    </div>
+                </diV>
                 </div>
                 
             </div>
@@ -170,14 +154,16 @@
 <style>        
 /* CALENDAR */
 .calendar-container{
-    width: 35%;
+    position: fixed;
+    width: max-content;
+    height: max-content;
+    bottom: 1.5%;
+    right: 5%;
 }
 
 .calendar-box{
-  width: 100%;
-  min-height: 52%;
-  max-height: 52%;
-  height: max-content;
+  width: 365px;
+  height: 350px;
  
 }
 
