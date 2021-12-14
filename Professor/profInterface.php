@@ -101,25 +101,7 @@
 
             <div class="content-container">
                 <div class="first-container">
-                    <h1>Quezon City University Calendar</h1>
-
-                    <div class="date">
-                            <h1><?=$day?></h1>
-                            <h2><?=$dayName?>, <span><?=$monthName?></span></h2>
-                            <h3><?php if(mysqli_num_rows($fetchAnnouncementToday) < 1 ){ echo "No announcement"; }
-                            else{ echo $todaysAnnouncement['event']; } ?></h3>
-                        
-                    </div>
-
-                    <div class="sched">
-                        <h3>Schedule for the month of <?=$month?></h3>
-                        <?php if(mysqli_num_rows($fetchAllEvents) > 0) {
-                            while($eventThisMonth = mysqli_fetch_assoc($fetchAllEvents)) { ?>
-                        <p> <?=$eventThisMonth['event']?> <span> <?=$eventThisMonth['date']?>  </span> </p>
-                       <?php } } else{
-                           echo "<h3> No events this month </h3>";
-                       } ?>
-                    </div>
+                   
 
                     <div class="announcement">
                         <h1> <img src="../icons/announcement.png" alt=""> Announcements </h1>
@@ -136,73 +118,66 @@
 
                 </div>
 
-
                 <div class="calendar-container">
                     <div class="calendar-box">
-                            <div class="calendar">
-                        <div class="month">
-                            <i class="fas fa-angle-left prev"></i>
-                            <div class="date">
-                                <h1></h1>
-                                <p></p>
+                        <div class="calendar">
+                            <div class="month">
+                                <i class="fas fa-angle-left prev"></i>
+                                <div class="date">
+                                    <h1></h1>
+                                    <p></p>
+                                </div>
+                                <i class="fas fa-angle-right next"></i>
                             </div>
-                            <i class="fas fa-angle-right next"></i>
+                            <div class="weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="days"> </div>
                         </div>
-                        <div class="weekdays">
-                            <div>Sun</div>
-                            <div>Mon</div>
-                            <div>Tue</div>
-                            <div>Wed</div>
-                            <div>Thu</div>
-                            <div>Fri</div>
-                            <div>Sat</div>
-                        </div>
-                        <div class="days"> </div>
                     </div>
+
+                    <div class="date">
+                        <h1><?=$day?></h1>
+                        <h2><?=$dayName?>, <span><?=$monthName?></span></h2>
+                        <h3><?php if(mysqli_num_rows($fetchAnnouncementToday) < 1 ){ echo "No announcement"; }
+                        else{ echo $todaysAnnouncement['event']; } ?></h3>
+                    </div>
+
+                    <div class="sched">
+                        <h3> Schedule for the month of <?=$month?></h3>
+                        <?php if(mysqli_num_rows($fetchAllEvents) > 0) {
+                            while($eventThisMonth = mysqli_fetch_assoc($fetchAllEvents)) { ?>
+                        <p> <?=$eventThisMonth['event']?> <span> <?=$eventThisMonth['date']?>  </span> </p>
+                       <?php } } else{
+                           echo "<h3> No events this month </h3>";
+                       } ?>
                     </div>
                 </div>
-                       
-
-
+                
             </div>
-
-
         </section>
-
-
-
-
-
     </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <style>
-        
+<style>        
 /* CALENDAR */
+.calendar-container{
+    width: 35%;
+}
 
 .calendar-box{
   width: 100%;
   min-height: 52%;
   max-height: 52%;
   height: max-content;
-  padding: 5px 12px;
  
 }
 
@@ -275,7 +250,7 @@
  .calendar-box .days div {
   font-size: .8em;
   width: calc(15.4rem / 7);
-  margin: 10px 5px;
+  margin: 10px 6px;
   display: flex;
   justify-content: center;
   align-items: center;

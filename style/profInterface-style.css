@@ -377,14 +377,13 @@ body{
 
 .container .content-container{
   display: flex;
-  padding: 0 10%;
+  padding: 0 2%;
 }
 
 .container .content-container .first-container{
   text-align: center;
   padding: 50px 0;
-  width: 100%;
-  margin-right: 20px;
+  width: 65%;
 }
 
 .container .content-container .first-container h1{

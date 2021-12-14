@@ -39,30 +39,18 @@
 
 <script>
     $(document).ready(function(){
-        $('#section').change(function(){
-            var section = $('#section').val();
-            var subject = $('#subject').val();
+       $('#section').change(function(){
+           $('#subject').load('../ajaxProcess/fetchSubject.php',{
 
-            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{
-                section:section,
-                subject:subject
-            });
+           });
+       });
 
-            $('#subject').load('../ajaxProcess/fetchSubject.php',{
-                section: section,
-                subject:subject
-            });
-        });
+       $('#subject').change(function(){
+           $('#section').load('../ajaxProcess/fetchSection.php',{
 
-        $('#subject').change(function(){
-            var subject = $('#subject').val();
-            var section = $('#section').val();
+           })
+       });
 
-            $('.grade-box').load('../ajaxProcess/fetchStudent.php',{ 
-                subject:subject,
-                section:section
-            });
-        });
     });
 </script>
 
@@ -113,6 +101,8 @@
                             while($row = mysqli_fetch_assoc($selSec)) { ?>
                                 <option value="<?=$row['sectionName']?>"> <?=$row['sectionName']?> </option>
                         <?php } } ?>
+                   
+                        
                     </select>
                 </div>
                 <div class="combo-box">
@@ -122,6 +112,7 @@
                             while($row = mysqli_fetch_assoc($selSub)) { ?>
                                 <option value="<?=$row['subject']?>"> <?=$row['subject']?> </option>
                         <?php } } ?>
+                  
                     </select>
                 </div>
               </div>
