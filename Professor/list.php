@@ -80,12 +80,12 @@
 
             <div class="navigation">
                 <ul>
-                    <li> <a href="profInterface.php" > <img src="../icons/open-book.png" alt="">  overview </a> </li>
-                    <li> <a href="./profInfo.php" > <img src="../icons/open-book.png" alt="">  academic profile </a> </li>
-                    <li> <a href="calendar.php"> <img src="../icons/open-book.png" alt=""> calendar </a> </li>
+                    <li> <a href="profInterface.php" > <img src="../icons/document.png" alt="">  overview </a> </li>
+                    <li> <a href="./profInfo.php" > <img src="../icons/graduation.png" alt="">  academic profile </a> </li>
+                    <li> <a href="calendar.php"> <img src="../icons/timetable.png" alt=""> calendar </a> </li>
                     <li> 
                         <a id="docu-btn" class="selected"> 
-                            <img src="../icons/open-book.png" alt=""> 
+                            <img src="../icons/requirement.png" alt=""> 
                             documents
                             <img src="../icons/down-arrow.png" id="drop-down">
                             <div class="docu-other" id="other-docu">
@@ -95,15 +95,8 @@
                             </div>
                         </a> 
                     </li>
-                    <li> <a href="profAnnouncement.php"> <img src="../icons/open-book.png" alt=""> announcements </a> </li>
+                    <li> <a href="profAnnouncement.php"> <img src="../icons/megaphone.png" alt=""> announcements </a> </li>
                 </ul>
-            </div>
-
-            <div class="up-events">
-                <h2>Upcoming Events</h2>
-                <p><img src="../icons/party.png" alt=""> Quezon City University U-Week</p>
-                <p><img src="../icons/party.png" alt=""> QCU Foundation Day</p>
-                <p><img src="../icons/party.png" alt=""> Buwan ng wika</p>
             </div>
         </section>
 

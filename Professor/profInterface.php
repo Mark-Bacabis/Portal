@@ -49,6 +49,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/profInterface-style.css">
+    <link rel="stylesheet" href="../style/calendar.css">
     <title>Quezon City University | Professor Login</title>
 </head>
 <body>
@@ -65,12 +66,12 @@
 
             <div class="navigation">
                 <ul>
-                    <li> <a href="profInterface.php" class="selected"> <img src="../icons/open-book.png" alt="">  overview </a> </li>
-                    <li> <a href="./profInfo.php"> <img src="../icons/open-book.png" alt="">  academic profile </a> </li>
-                    <li> <a href="calendar.php"> <img src="../icons/open-book.png" alt=""> calendar </a> </li>
+                    <li> <a href="profInterface.php" class="selected"> <img src="../icons/document.png" alt="">  overview </a> </li>
+                    <li> <a href="./profInfo.php"> <img src="../icons/graduation.png" alt="">  academic profile </a> </li>
+                    <li> <a href="calendar.php"> <img src="../icons/timetable.png" alt=""> calendar </a> </li>
                     <li> 
                         <a id="docu-btn"> 
-                            <img src="../icons/open-book.png" alt=""> 
+                            <img src="../icons/requirement.png" alt=""> 
                             documents
                             <img src="../icons/down-arrow.png" id="drop-down">
                             <div class="docu-other" id="other-docu">
@@ -80,16 +81,10 @@
                             </div>
                         </a> 
                     </li>
-                    <li> <a href="profAnnouncement.php"> <img src="../icons/open-book.png" alt=""> announcements </a> </li>
+                    <li> <a href="profAnnouncement.php"> <img src="../icons/megaphone.png" alt=""> announcements </a> </li>
                 </ul>
             </div>
 
-            <div class="up-events">
-                <h2>Upcoming Events</h2>
-                <p><img src="../icons/party.png" alt="">Quezon City University U-Week</p>
-                <p><img src="../icons/party.png" alt="">QCU Foundation Day</p>
-                <p><img src="../icons/party.png" alt="">Buwan ng wika</p>
-            </div>
         </section>
         
         <section class = "admin-container">
@@ -138,16 +133,204 @@
                     </div>
 
 
+
                 </div>
+
+
+                <div class="calendar-container">
+                    <div class="calendar-box">
+                            <div class="calendar">
+                        <div class="month">
+                            <i class="fas fa-angle-left prev"></i>
+                            <div class="date">
+                                <h1></h1>
+                                <p></p>
+                            </div>
+                            <i class="fas fa-angle-right next"></i>
+                        </div>
+                        <div class="weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="days"> </div>
+                    </div>
+                    </div>
+                </div>
+                       
+
+
             </div>
 
 
         </section>
 
-    
+
+
+
 
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        
+/* CALENDAR */
+
+.calendar-box{
+  width: 100%;
+  min-height: 52%;
+  max-height: 52%;
+  height: max-content;
+  padding: 5px 12px;
+ 
+}
+
+ .calendar-box .calendar {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 10x;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 7px 10px 0 rgba(0,0,0,.07);
+  
+}
+
+ .calendar-box .month {
+  width: 100%;
+  height: 20%;
+  background-color: #16437e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.calendar-box .month i {
+  font-size: 1.5em;
+  cursor: pointer;
+  opacity: .5;
+} 
+
+.calendar-box .month i:hover{
+  opacity: 1;
+}
+
+.calendar-box .month p {
+  font-size: .9em;
+}
+
+ .calendar-box .weekdays {
+  width: 100%;
+  height: max-content;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  background-color: #113564;
+  
+}
+
+
+ .calendar-box .weekdays div {
+  font-size: .9em;
+  font-weight: 300;
+  width: calc(44.2rem / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.678);
+}
+
+
+.calendar-box .days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+ .calendar-box .days div {
+  font-size: .8em;
+  width: calc(15.4rem / 7);
+  margin: 10px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+ .calendar-box .days div:hover:not(.today) {
+  background-color: #16437e86;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+ .calendar-box .prev-date,
+ .calendar-box .next-date {
+  opacity: .5;
+}
+
+ .calendar-box .today {
+  background-color: #16437e;
+  border-radius: 4px;
+  color: #fff;
+  cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
 
 
 
@@ -161,4 +344,5 @@
 </body>
 <script src = "../js/date.js"> </script>
 <script src="../js/main.js"></script>
+<script src="../js/calendar.js"></script>
 </html>
