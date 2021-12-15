@@ -42,8 +42,6 @@
                         <br>
                         <label for="pass">Password</label>
                         <input type="password" name="pass" id="pass">
-                        <input type="checkbox" name="rm" id="rm">
-                        <label class = "rm" for="rm">Remember Me</label>
                         <br>
                         <input type="submit" value="LOGIN" name="loginBtn">
                         <p>Don't have an account? <a href="profRegister.php">Register here</a></p>
